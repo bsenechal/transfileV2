@@ -36,16 +36,34 @@ public class ConfigurationDao {
 			
 			preparedStatement = dbConnection.prepareStatement(selectSQL);
 			
-			// execute select SQL stetement
+			// execute select SQL statement
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 
 				String configId = rs.getString("CONFIG_ID");
 				String nameFile = rs.getString("NAME_FILE");
+				String profile = rs.getString("PROFILE");
+				String nameDest = rs.getString("NAME_DEST");
+				String nameZip = rs.getString("NAME_ZIP");
+				String delete = rs.getBoolean("DELETE");
+				String multiple = rs.getInt("MULTIPLE");
+				String occurence = rs.getInt("OCCURENCE");
+				String comment = rs.getString("COMMENT");
+				String listServ = rs.getString("LIST_SERV");
+				String release = rs.getString("RELEASE");
 
 				System.out.println("userid : " + configId);
 				System.out.println("username : " + nameFile);
+				System.out.println("profile : " + profile);
+				System.out.println("nameDest : " + nameDest);
+				System.out.println("nameZip : " + nameZip);
+				System.out.println("delete : " + delete);
+				System.out.println("multiple : " + multiple);
+				System.out.println("occurence : " + occurence);
+				System.out.println("comment : " + comment);
+				System.out.println("listServ : " + listServ);
+				System.out.println("release : " + release);
 
 			}
 
