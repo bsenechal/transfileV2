@@ -1,16 +1,44 @@
 package com.transfile.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CONFIGURATION")
 public class Configuration {
+	@Id
+	@Column(name = "CONFIGURATION_ID", precision = 12, scale = 0)
 	private Integer configId;
+	
+	@Column(name = "NAME_FILE", length=100)
 	private String nameFile;
+	
+	@Column(name = "PROFILE", length=100)
     private String profile;
+	
+	@Column(name = "NAME_DEST", length=100)
     private String nameDest;
+	
+	@Column(name = "NAME_ZIP", length=100)
     private String nameZip;
-    private Boolean delete;
+	
+//    private Boolean delete;
+    
+    @Column(name = "MULTIPLE", precision = 12, scale = 0)
     private Integer multiple;
+    
+    @Column(name = "OCCURENCE", precision = 12, scale = 0)
     private Integer occurence;
+    
+    @Column(name = "COMMENT", length=100)
     private String comment;
+    
+    @Column(name = "LIST_SERV", length=100)
     private String listServ;
+    
+    @Column(name = "RELEASES", length=100)
     private String release;
 
     //Getter/Setters
@@ -53,14 +81,14 @@ public class Configuration {
     public void setNameZip(String nameZip) {
         this.nameZip = nameZip;
     }
-
-    public Boolean getDelete() {
-        return delete;
-    }
-
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
-    }
+//
+//    public Boolean getDelete() {
+//        return delete;
+//    }
+//
+//    public void setDelete(Boolean delete) {
+//        this.delete = delete;
+//    }
 
     public Integer getMultiple() {
         return multiple;
