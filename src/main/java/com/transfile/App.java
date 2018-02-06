@@ -1,8 +1,8 @@
-package com.equensworldline.transfile;
+package com.transfile;
 
 import java.sql.SQLException;
 
-import com.equensworldline.transfile.dao.ConfigurationDao;
+import com.transfile.dao.ConfigurationDao;
 
 /**
  * Hello world!

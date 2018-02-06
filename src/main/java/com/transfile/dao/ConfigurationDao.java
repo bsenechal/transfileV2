@@ -1,43 +1,36 @@
-package com.equensworldline.transfile.dao;
+package com.transfile.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.transfile.model.Configuration;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.equensworldline.transfile.model.Configuration;
-
 // Classe pour communiquer avec la BDD + Gestion des transactions
 public class ConfigurationDao {
-	private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
-	private static final String DB_CONNECTION = "jdbc:oracle:thin:@localhost:1521:MKYONG";
-	private static final String DB_USER = "user";
-	private static final String DB_PASSWORD = "password";
+	private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+	private static final String DB_CONNECTION = "jdbc:mysql://localhost/test?autoReconnect=true&useSSL=false";
+	private static final String DB_USER = "test";
+	private static final String DB_PASSWORD = "test";
 
-	
 	public List<Configuration> findAllConfigurations() throws SQLException {
 		List<Configuration> result = new ArrayList<Configuration>();
-		
-		// TODO Select * 
-		// puis remplir result avec le contenu de la table configuration
-		Connection dbConnection = null;
+
+        Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 
-		
+
 		String selectSQL = "SELECT * FROM CONFIGURATION";
 
 		try
 		{
 			// Ouverture de la connection vers la BDD
-			dbConnection = getDBConnection();
-			
-			preparedStatement = dbConnection.prepareStatement(selectSQL);
-			
+			//dbConnection = getDBConnection();
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","test", "test");
+			Statement stmt = conn.createStatement();
+
 			// execute select SQL statement
-			ResultSet rs = preparedStatement.executeQuery();
+			ResultSet rs = stmt.executeQuery(selectSQL);
 
 			while (rs.next()) {
 
@@ -46,9 +39,9 @@ public class ConfigurationDao {
 				String profile = rs.getString("PROFILE");
 				String nameDest = rs.getString("NAME_DEST");
 				String nameZip = rs.getString("NAME_ZIP");
-				String delete = rs.getBoolean("DELETE");
-				String multiple = rs.getInt("MULTIPLE");
-				String occurence = rs.getInt("OCCURENCE");
+				Boolean delete = rs.getBoolean("DELETE");
+				Integer multiple = rs.getInt("MULTIPLE");
+				Integer occurence = rs.getInt("OCCURENCE");
 				String comment = rs.getString("COMMENT");
 				String listServ = rs.getString("LIST_SERV");
 				String release = rs.getString("RELEASE");
@@ -88,7 +81,7 @@ public class ConfigurationDao {
 		
 		return result;
 	}
-	
+
 	private static Connection getDBConnection() {
 
 		Connection dbConnection = null;

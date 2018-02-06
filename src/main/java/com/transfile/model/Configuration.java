@@ -1,11 +1,8 @@
-package com.equensworldline.transfile.model;
+package com.transfile.model;
 
 public class Configuration {
 	private Integer configId;
 	private String nameFile;
-
-
-
     private String profile;
     private String nameDest;
     private String nameZip;
@@ -104,11 +101,6 @@ public class Configuration {
     public void setRelease(String release) {
         this.release = release;
     }
-
-
-
-	
-	// Getter/Setter
 
 	
 }

@@ -1,4 +1,4 @@
-package com.equensworldline.transfile;
+package com.transfile;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
