@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import org.apache.log4j.Logger;
 
 public abstract class AFileType {
+	
 	protected String fileContent;
 	protected String filePath;
 	protected String fileName;
