@@ -16,7 +16,7 @@ import com.transfile.repository.IConfigurationRepository;
 public class ConfigurationService {
 
 	@Autowired
-	IConfigurationRepository configurationRepository;
+	private IConfigurationRepository configurationRepository;
 	
 	public List<Configuration> findAll() {
 		return configurationRepository.findAll();

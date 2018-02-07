@@ -1,7 +1,5 @@
 package com.transfile;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.transfile.model.log_type.Sendfile;
 import com.transfile.service.ConfigurationService;
 
 @SpringBootApplication(scanBasePackages = "com.transfile")
@@ -43,16 +42,21 @@ public class Application {
     public CommandLineRunner run(ApplicationContext appContext) {
         return args -> {
 
-        	// Récupère les données
-        	List<com.transfile.model.Configuration> configs = configurationService.findAll();
-
-        	// Affiche 
-        	for (com.transfile.model.Configuration config : configs) {
-        		
-        		System.out.println(config.getConfigurationId());
-        		
-        		System.out.println(config.getNameFile());
-        	}
+//        	// Récupère les données
+//        	List<com.transfile.model.Configuration> configs = configurationService.findAll();
+//
+//        	// Affiche 
+//        	for (com.transfile.model.Configuration config : configs) {
+//        		
+//        		System.out.println(config.getConfigurationId());
+//        		
+//        		System.out.println(config.getNameFile());
+//        	}
+        	
+        	
+        	Sendfile sendFile = new Sendfile();
+        	
+        	sendFile.generateFile();
         	
         	
         	// TODO faire pareil Client
