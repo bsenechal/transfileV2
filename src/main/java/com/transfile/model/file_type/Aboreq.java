@@ -1,4 +1,6 @@
-package com.transfile.model.log_type;
+package com.transfile.model.file_type;
+
+import com.transfile.model.log_type.SUBArboreq;
 
 public class Aboreq extends AFileType {
 	
@@ -9,17 +11,11 @@ public class Aboreq extends AFileType {
 	
 	@Override
 	public void generateFile() {
-		// TODO Auto-generated method stub
+		SUBArboreq subArboreq = new SUBArboreq();
 		
-		// Client.findBy ...
+		fileContent = subArboreq.getContent();
 		
-		// Configuration.findBy ...
-		
-		// Normalisation
-		
-		fileContent = "test";
-		
-		super.writeFile();
+		super.appendFile();
 		
 	}
 

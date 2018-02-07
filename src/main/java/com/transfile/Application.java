@@ -13,7 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.transfile.model.log_type.Sendfile;
+import com.transfile.model.file_type.AFileType;
+import com.transfile.model.file_type.Sendfile;
 import com.transfile.service.ConfigurationService;
 
 @SpringBootApplication(scanBasePackages = "com.transfile")
@@ -54,10 +55,10 @@ public class Application {
 //        	}
         	
         	
-        	Sendfile sendFile = new Sendfile();
+
+        	AFileType sendfile = new Sendfile();
         	
-        	sendFile.generateFile();
-        	
+        	sendfile.generateFile();
         	
         	// TODO faire pareil Client
         	// Le bean client avec les annotations de mapping pour la BDD

@@ -1,3 +1,5 @@
+# Generated conf file
+*.conf
 
 # Compiled class file
 *.class
