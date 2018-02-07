@@ -1,6 +1,6 @@
 package com.transfile.model.log_type;
 
-public class SUBArboreq extends ALogType {
+public class SUBAboreq extends ALogType {
 
 	@Override
 	public String getContent() {

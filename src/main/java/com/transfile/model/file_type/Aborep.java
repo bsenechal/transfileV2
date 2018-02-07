@@ -1,6 +1,6 @@
 package com.transfile.model.file_type;
 
-import com.transfile.model.log_type.SUBArborep;
+import com.transfile.model.log_type.SUBAborep;
 
 public class Aborep extends AFileType {
 	
@@ -11,7 +11,7 @@ public class Aborep extends AFileType {
 	
 	@Override
 	public void generateFile() {
-		SUBArborep subArborep = new SUBArborep();
+		SUBAborep subArborep = new SUBAborep();
 		
 		fileContent = subArborep.getContent();
 		
