@@ -2,6 +2,7 @@ package com.transfile;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,17 +27,16 @@ public class Application {
 	
 	@Autowired
 	private ConfigurationService configurationService;
+	private final static Logger LOGGER = Logger.getLogger(Application.class);
 	
 	// TODO --> Autowired
 	
     public static void main(String[] args) {
-    	
-    	System.out.println("Début du batch");
-        SpringApplication.run(Application.class, args);
+    	LOGGER.info("Début du batch");
         
-        System.out.println("Fin du batch");
+    	SpringApplication.run(Application.class, args);
         
-
+        LOGGER.info("Fin du batch");
     }
 
     @Bean
@@ -49,7 +49,7 @@ public class Application {
         	// Affiche 
         	for (com.transfile.model.Configuration config : configs) {
         		
-        		System.out.println(config.getConfigId());
+        		System.out.println(config.getConfigurationId());
         		
         		System.out.println(config.getNameFile());
         	}

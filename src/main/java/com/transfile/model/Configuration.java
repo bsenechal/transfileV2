@@ -9,126 +9,190 @@ import javax.persistence.Table;
 @Table(name = "CONFIGURATION")
 public class Configuration {
 	@Id
-	@Column(name = "CONFIGURATION_ID", precision = 12, scale = 0)
-	private Integer configId;
+	@Column(name = "CONFIGURATION_ID", precision = 11, scale = 0)
+	private Integer configurationId;
 	
-	@Column(name = "NAME_FILE", length=100)
+	@Column(name = "NAME_FILE", length=25)
 	private String nameFile;
 	
-	@Column(name = "PROFILE", length=100)
+	@Column(name = "PROFILE", length=25)
     private String profile;
 	
-	@Column(name = "NAME_DEST", length=100)
+	@Column(name = "NAME_DEST", length=50)
     private String nameDest;
 	
-	@Column(name = "NAME_ZIP", length=100)
+	@Column(name = "NAME_ZIP", length=50)
     private String nameZip;
 	
-//    private Boolean delete;
+	@Column(name = "DELETE", columnDefinition = "BOOLEAN")
+    private Boolean delete;
     
-    @Column(name = "MULTIPLE", precision = 12, scale = 0)
+    @Column(name = "MULTIPLE", precision = 11, scale = 0)
     private Integer multiple;
     
-    @Column(name = "OCCURENCE", precision = 12, scale = 0)
+    @Column(name = "OCCURENCE", precision = 11, scale = 0)
     private Integer occurence;
     
-    @Column(name = "COMMENT", length=100)
+    @Column(name = "COMMENT", length=200)
     private String comment;
     
-    @Column(name = "LIST_SERV", length=100)
+    @Column(name = "LIST_SERV", length=200)
     private String listServ;
     
-    @Column(name = "RELEASES", length=100)
-    private String release;
+    @Column(name = "RELEASES", length=25)
+    private String releases;
 
-    //Getter/Setters
-    public Integer getConfigId() {
-        return configId;
-    }
+	/**
+	 * @return the configurationId
+	 */
+	public Integer getConfigurationId() {
+		return configurationId;
+	}
 
-    public void setConfigId(Integer configId) {
-        this.configId = configId;
-    }
+	/**
+	 * @param configurationId the configurationId to set
+	 */
+	public void setConfigurationId(Integer configurationId) {
+		this.configurationId = configurationId;
+	}
 
-    public String getNameFile() {
-        return nameFile;
-    }
+	/**
+	 * @return the nameFile
+	 */
+	public String getNameFile() {
+		return nameFile;
+	}
 
-    public void setNameFile(String nameFile) {
-        this.nameFile = nameFile;
-    }
+	/**
+	 * @param nameFile the nameFile to set
+	 */
+	public void setNameFile(String nameFile) {
+		this.nameFile = nameFile;
+	}
 
-    public String getProfile() {
-        return profile;
-    }
+	/**
+	 * @return the profile
+	 */
+	public String getProfile() {
+		return profile;
+	}
 
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
+	/**
+	 * @param profile the profile to set
+	 */
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 
-    public String getNameDest() {
-        return nameDest;
-    }
+	/**
+	 * @return the nameDest
+	 */
+	public String getNameDest() {
+		return nameDest;
+	}
 
-    public void setNameDest(String nameDest) {
-        this.nameDest = nameDest;
-    }
+	/**
+	 * @param nameDest the nameDest to set
+	 */
+	public void setNameDest(String nameDest) {
+		this.nameDest = nameDest;
+	}
 
-    public String getNameZip() {
-        return nameZip;
-    }
+	/**
+	 * @return the nameZip
+	 */
+	public String getNameZip() {
+		return nameZip;
+	}
 
-    public void setNameZip(String nameZip) {
-        this.nameZip = nameZip;
-    }
-//
-//    public Boolean getDelete() {
-//        return delete;
-//    }
-//
-//    public void setDelete(Boolean delete) {
-//        this.delete = delete;
-//    }
+	/**
+	 * @param nameZip the nameZip to set
+	 */
+	public void setNameZip(String nameZip) {
+		this.nameZip = nameZip;
+	}
 
-    public Integer getMultiple() {
-        return multiple;
-    }
+	/**
+	 * @return the delete
+	 */
+	public Boolean getDelete() {
+		return delete;
+	}
 
-    public void setMultiple(Integer multiple) {
-        this.multiple = multiple;
-    }
+	/**
+	 * @param delete the delete to set
+	 */
+	public void setDelete(Boolean delete) {
+		this.delete = delete;
+	}
 
-    public Integer getOccurence() {
-        return occurence;
-    }
+	/**
+	 * @return the multiple
+	 */
+	public Integer getMultiple() {
+		return multiple;
+	}
 
-    public void setOccurence(Integer occurence) {
-        this.occurence = occurence;
-    }
+	/**
+	 * @param multiple the multiple to set
+	 */
+	public void setMultiple(Integer multiple) {
+		this.multiple = multiple;
+	}
 
-    public String getComment() {
-        return comment;
-    }
+	/**
+	 * @return the occurence
+	 */
+	public Integer getOccurence() {
+		return occurence;
+	}
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+	/**
+	 * @param occurence the occurence to set
+	 */
+	public void setOccurence(Integer occurence) {
+		this.occurence = occurence;
+	}
 
-    public String getListServ() {
-        return listServ;
-    }
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
 
-    public void setListServ(String listServ) {
-        this.listServ = listServ;
-    }
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 
-    public String getRelease() {
-        return release;
-    }
+	/**
+	 * @return the listServ
+	 */
+	public String getListServ() {
+		return listServ;
+	}
 
-    public void setRelease(String release) {
-        this.release = release;
-    }
+	/**
+	 * @param listServ the listServ to set
+	 */
+	public void setListServ(String listServ) {
+		this.listServ = listServ;
+	}
 
-	
+	/**
+	 * @return the releases
+	 */
+	public String getReleases() {
+		return releases;
+	}
+
+	/**
+	 * @param releases the releases to set
+	 */
+	public void setReleases(String releases) {
+		this.releases = releases;
+	}
 }
