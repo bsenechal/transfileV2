@@ -11,36 +11,36 @@ public class Configuration {
 	@Id
 	@Column(name = "CONFIGURATION_ID", precision = 11, scale = 0)
 	private Integer configurationId;
-	
-	@Column(name = "NAME_FILE", length=25)
+
+	@Column(name = "NAME_FILE", length = 25)
 	private String nameFile;
-	
-	@Column(name = "PROFILE", length=25)
-    private String profile;
-	
-	@Column(name = "NAME_DEST", length=50)
-    private String nameDest;
-	
-	@Column(name = "NAME_ZIP", length=50)
-    private String nameZip;
-	
-	@Column(name = "DELETE", columnDefinition = "BOOLEAN")
-    private Boolean delete;
-    
-    @Column(name = "MULTIPLE", precision = 11, scale = 0)
-    private Integer multiple;
-    
-    @Column(name = "OCCURENCE", precision = 11, scale = 0)
-    private Integer occurence;
-    
-    @Column(name = "COMMENT", length=200)
-    private String comment;
-    
-    @Column(name = "LIST_SERV", length=200)
-    private String listServ;
-    
-    @Column(name = "RELEASES", length=25)
-    private String releases;
+
+	@Column(name = "PROFILE", length = 25)
+	private String profile;
+
+	@Column(name = "NAME_DEST", length = 50)
+	private String nameDest;
+
+	@Column(name = "NAME_ZIP", length = 50)
+	private String nameZip;
+
+	@Column(name = "DELETE_FLAG", columnDefinition = "BOOLEAN")
+	private Boolean deleteFlag;
+
+	@Column(name = "MULTIPLE", precision = 11, scale = 0)
+	private Integer multiple;
+
+	@Column(name = "OCCURENCE", precision = 11, scale = 0)
+	private Integer occurence;
+
+	@Column(name = "COMMENT", length = 200)
+	private String comment;
+
+	@Column(name = "LIST_SERV", length = 200)
+	private String listServ;
+
+	@Column(name = "RELEASES", length = 25)
+	private String releases;
 
 	/**
 	 * @return the configurationId
@@ -50,7 +50,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param configurationId the configurationId to set
+	 * @param configurationId
+	 *            the configurationId to set
 	 */
 	public void setConfigurationId(Integer configurationId) {
 		this.configurationId = configurationId;
@@ -64,7 +65,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param nameFile the nameFile to set
+	 * @param nameFile
+	 *            the nameFile to set
 	 */
 	public void setNameFile(String nameFile) {
 		this.nameFile = nameFile;
@@ -78,7 +80,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param profile the profile to set
+	 * @param profile
+	 *            the profile to set
 	 */
 	public void setProfile(String profile) {
 		this.profile = profile;
@@ -92,7 +95,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param nameDest the nameDest to set
+	 * @param nameDest
+	 *            the nameDest to set
 	 */
 	public void setNameDest(String nameDest) {
 		this.nameDest = nameDest;
@@ -106,24 +110,26 @@ public class Configuration {
 	}
 
 	/**
-	 * @param nameZip the nameZip to set
+	 * @param nameZip
+	 *            the nameZip to set
 	 */
 	public void setNameZip(String nameZip) {
 		this.nameZip = nameZip;
 	}
 
 	/**
-	 * @return the delete
+	 * @return the deleteFlag
 	 */
-	public Boolean getDelete() {
-		return delete;
+	public Boolean getDeleteFlag() {
+		return deleteFlag;
 	}
 
 	/**
-	 * @param delete the delete to set
+	 * @param deleteFlag
+	 *            the deleteFlag to set
 	 */
-	public void setDelete(Boolean delete) {
-		this.delete = delete;
+	public void setDeleteFlag(Boolean deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 
 	/**
@@ -134,7 +140,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param multiple the multiple to set
+	 * @param multiple
+	 *            the multiple to set
 	 */
 	public void setMultiple(Integer multiple) {
 		this.multiple = multiple;
@@ -148,7 +155,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param occurence the occurence to set
+	 * @param occurence
+	 *            the occurence to set
 	 */
 	public void setOccurence(Integer occurence) {
 		this.occurence = occurence;
@@ -162,7 +170,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param comment the comment to set
+	 * @param comment
+	 *            the comment to set
 	 */
 	public void setComment(String comment) {
 		this.comment = comment;
@@ -176,7 +185,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param listServ the listServ to set
+	 * @param listServ
+	 *            the listServ to set
 	 */
 	public void setListServ(String listServ) {
 		this.listServ = listServ;
@@ -190,7 +200,8 @@ public class Configuration {
 	}
 
 	/**
-	 * @param releases the releases to set
+	 * @param releases
+	 *            the releases to set
 	 */
 	public void setReleases(String releases) {
 		this.releases = releases;
