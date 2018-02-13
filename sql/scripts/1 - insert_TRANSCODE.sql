@@ -3,19 +3,19 @@ INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VA
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('3', 'SOB', '', '');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('4', 'SOB', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('5', 'SOB', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('6', 'SOB', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('6', 'SOB', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('7', 'SUB', 'ftp', 'atosftp');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('8', 'SUB', 'sftp', 'atossftpr');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('9', 'SUB', '', '');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('10', 'SUB', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('11', 'SUB', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('12', 'SUB', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('12', 'SUB', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('13', 'matching', 'ftp', 'atosftp');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('14', 'matching', 'sftp', 'atossftpr');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('15', 'matching', '', '');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('16', 'matching', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('17', 'matching', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('18', 'matching', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('18', 'matching', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('19', 'matching', 'BNP', 'BNP-1DBNP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('20', 'matching', 'SG', 'SG-1DSG');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('21', 'matching', 'CL', 'CL-1DCL');
@@ -44,7 +44,7 @@ INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VA
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('44', 'chargeback', 'sftp', 'atossftpr');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('45', 'chargeback', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('46', 'chargeback', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('47', 'chargeback', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('47', 'chargeback', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('48', 'chargeback', 'BNP', 'BNP-1D');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('49', 'chargeback', 'SG', 'SG-1D');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('50', 'chargeback', 'CL', 'CL-1D');
@@ -74,7 +74,7 @@ INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VA
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('74', 'wallet', '', '');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('75', 'wallet', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('76', 'wallet', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('77', 'wallet', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('77', 'wallet', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('78', 'wallet', 'yymmdd', '${e_date}');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('79', 'wallet', 'yyyymmdd', '${e_date1}');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('80', 'wallet', 'yyyy_mm_dd', '${e_date2}');
@@ -99,7 +99,7 @@ INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VA
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('99', 'operation', '', '');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('100', 'operation', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('101', 'operation', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('102', 'operation', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('102', 'operation', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('103', 'operation', 'yymmdd', '${e_date}');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('104', 'operation', 'yyyymmdd', '${e_date1}');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('105', 'operation', 'yyyy_mm_dd', '${e_date2}');
@@ -124,7 +124,7 @@ INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VA
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('124', 'transaction', '', '');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('125', 'transaction', 'zip', '.ZIP');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('126', 'transaction', 'csv', '.CSV');
-INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('127', 'transaction', 'xml', '.XML');
+INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('127', 'transaction', 'txt', '.TXT');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('128', 'transaction', 'yymmdd', '${e_date}');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('129', 'transaction', 'yyyymmdd', '${e_date1}');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('130', 'transaction', 'yyyy_mm_dd', '${e_date2}');
@@ -144,21 +144,3 @@ INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VA
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('144', 'transaction', '4', 'DUPLI_4');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('145', 'transaction', '5', 'DUPLI_5');
 INSERT INTO `test`.`transcode` (`TRANSCODE_ID`, `LOG_TYPE`, `DB_VALUE`, `CONF_VALUE`) VALUES ('146', 'transaction', '6', 'DUPLI_6');
-
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('1', '000000000000001', 'Myawsumshop', 'production', 'ftp', 'CL', 'ubzawsum');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('2', '000000000000002', 'GunsNRoses', 'acceptance', 'sftp', 'BNP', 'ubzrock');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('3', '000000000000003', 'Metallica', 'production', 'ftp', 'SIPS', 'ubzrock');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('4', '000000000000004', 'FooFighters', 'production', 'ftp', 'LAPOSTE', 'ubzrock');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('5', '000000000000005', 'Deadmau5', 'production', 'sftp', 'SG', 'ubzelectro');
-
-INSERT INTO `test`.`teams` (`TEAMS_ID`, `TEAMS_NAME`) VALUES ('1', 'TeamWin');
-
-INSERT INTO `test`.`employee` (`EMPLOYEE_ID`, `EMPLOYEE_NAME`, `TEAMS_ID`) VALUES ('1', 'test TEST', '1');
-
-INSERT INTO `test`.`project` (`PROJECT_ID`, `LABEL`, `START_DATE`, `TARGET_DATE`, `END_DATE`, `PROJECT_STATUS`) VALUES ('1', 'init', '2018-02-07', '2018-02-07', '2018-02-07', '1');
-
-INSERT INTO `test`.`configuration` (`CONFIGURATION_ID`, `PROFILE`, `NAME_FILE`, `NAME_ZIP`, `OCCURENCE`, `LIST_SERV`, `RELEASES`, `EXTENTION`, `DATE_FORMAT`, `PROJECT_ID`, `CLIENT_ID`) VALUES ('1', 'RAPPROCHEMENTS', 'rapban', 'RAPBAN', '01', 'tpsips53v;tpsips53s;tpsips54v;tpsips54s', '1.0.1', 'zip', 'yymmdd', '1', '1');
-INSERT INTO `test`.`configuration` (`CONFIGURATION_ID`, `PROFILE`, `NAME_FILE`, `NAME_ZIP`, `OCCURENCE`, `LIST_SERV`, `RELEASES`, `EXTENTION`, `DATE_FORMAT`, `PROJECT_ID`, `CLIENT_ID`) VALUES ('2', 'IMPAYES', 'jri', 'JRI', '01', 'tpsips53v;tpsips53s;tpsips54v;tpsips54s', '1.0.1', 'csv', 'yyyymmdd', '1', '2');
-INSERT INTO `test`.`configuration` (`CONFIGURATION_ID`, `PROFILE`, `NAME_FILE`, `NAME_ZIP`, `OCCURENCE`, `LIST_SERV`, `RELEASES`, `EXTENTION`, `DATE_FORMAT`, `PROJECT_ID`, `CLIENT_ID`) VALUES ('3', 'CARTE-ECHUES', 'extract', 'EXTRACT', '02', 'tpsips53v;tpsips53s;tpsips54v;tpsips54s', '1.0.1', 'zip', 'yymmdd', '1', '3');
-INSERT INTO `test`.`configuration` (`CONFIGURATION_ID`, `PROFILE`, `NAME_FILE`, `NAME_ZIP`, `OCCURENCE`, `LIST_SERV`, `RELEASES`, `EXTENTION`, `DATE_FORMAT`, `PROJECT_ID`, `CLIENT_ID`) VALUES ('4', 'IMPAYES', 'jri', 'JRI', '03', 'tpsips53v;tpsips53s;tpsips54v;tpsips54s', '1.0.1', 'zip', 'yymmdd', '1', '4');
-INSERT INTO `test`.`configuration` (`CONFIGURATION_ID`, `PROFILE`, `NAME_FILE`, `NAME_ZIP`, `OCCURENCE`, `LIST_SERV`, `RELEASES`, `EXTENTION`, `DATE_FORMAT`, `PROJECT_ID`, `CLIENT_ID`) VALUES ('5', 'RAPPROCHEMENTS', 'rapban', 'RAPBAN', '01', 'tpsips53v;tpsips53s;tpsips54v;tpsips54s', '1.0.1', 'zip', 'yymmdd', '1', '5');
