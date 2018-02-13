@@ -1,6 +1,7 @@
 package com.transfile;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -29,6 +30,16 @@ import com.transfile.model.file_type.Sendfile;
 @EnableJpaRepositories(basePackages = { "com.transfile.repository" })
 @EnableTransactionManagement
 public class Application {
+    @Autowired
+    private Sendfile sendfile;
+    @Autowired
+    private Aborep aborep;
+    @Autowired
+    private Aboreq aboreq;
+    @Autowired
+    private Offbatcdftor offbatcdftor;
+    @Autowired
+    private Requete requete;
     
     private final static Logger LOGGER = Logger.getLogger(Application.class);
     
@@ -54,26 +65,26 @@ public class Application {
             
             switch (param) {
             case "aborep": {
-                fileType = new Aborep();
+                fileType = aborep;
                 break;
             }
             
             case "aboreq": {
-                fileType = new Aboreq();
+                fileType = aboreq;
                 break;
             }
             
             case "offbatcdftor": {
-                fileType = new Offbatcdftor();
+                fileType = offbatcdftor;
                 break;
             }
             case "requete": {
-                fileType = new Requete();
+                fileType = requete;
                 break;
             }
             
             case "sendfile": {
-                fileType = new Sendfile();
+                fileType = sendfile;
                 break;
             }
             

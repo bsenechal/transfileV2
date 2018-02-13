@@ -11,4 +11,6 @@ public interface IConfigurationRepository extends CrudRepository<Configuration, 
     
     @Override
     public List<Configuration> findAll();
+    
+    public List<Configuration> findByLogType(String logType);
 }

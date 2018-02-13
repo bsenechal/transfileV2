@@ -1,8 +1,15 @@
 package com.transfile.model.file_type;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.transfile.model.log_type.SUBAboreq;
 
+@Component
 public class Aboreq extends AFileType {
+    
+    @Autowired
+    private SUBAboreq subAboreq;
     
     public Aboreq() {
         super.filePath = "C:\\Workspace\\Transfile\\transfileV2";
@@ -11,9 +18,7 @@ public class Aboreq extends AFileType {
     
     @Override
     public void generateFile() {
-        final SUBAboreq subArboreq = new SUBAboreq();
-        
-        fileContent = subArboreq.getContent();
+        fileContent = subAboreq.getContent();
         
         super.appendFile();
         

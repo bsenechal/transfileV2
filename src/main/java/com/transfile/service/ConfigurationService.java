@@ -13,12 +13,16 @@ import com.transfile.repository.IConfigurationRepository;
 @Service
 @Transactional
 // Gestion des erreurs + logique métier (nettoyage de données)
-public class ConfigurationService {
+public class ConfigurationService implements IConfigurationService{
     
     @Autowired
     private IConfigurationRepository configurationRepository;
     
     public List<Configuration> findAll() {
         return configurationRepository.findAll();
+    }
+    
+    public List<Configuration> findByLogType(String logType) {
+        return configurationRepository.findByLogType(logType);
     }
 }

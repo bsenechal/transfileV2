@@ -1,8 +1,11 @@
 package com.transfile.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,9 +14,6 @@ public class Client {
     @Id
     @Column(name = "CLIENT_ID", precision = 11, scale = 0)
     private Integer clientId;
-    
-    @Column(name = "UPDATE_DATE", precision = 11, scale = 0)
-    private Integer updateDate;
     
     @Column(name = "MERCHANT_ID", length = 25)
     private String merchantId;
@@ -33,6 +33,9 @@ public class Client {
     @Column(name = "MERCHANT_FTP", length = 25)
     private String merchantFtp;
     
+    @OneToMany
+    private List<Configuration> configurations ;
+    
     /**
      * @return the clientId
      */
@@ -46,21 +49,6 @@ public class Client {
      */
     public void setClientId(Integer clientId) {
         this.clientId = clientId;
-    }
-    
-    /**
-     * @return the updateDate
-     */
-    public Integer getUpdateDate() {
-        return updateDate;
-    }
-    
-    /**
-     * @param updateDate
-     *            the updateDate to set
-     */
-    public void setUpdateDate(Integer updateDate) {
-        this.updateDate = updateDate;
     }
     
     /**
