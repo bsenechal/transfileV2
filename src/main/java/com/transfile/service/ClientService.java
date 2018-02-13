@@ -7,18 +7,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.transfile.model.Configuration;
-import com.transfile.repository.IConfigurationRepository;
+import com.transfile.model.Client;
+import com.transfile.repository.IClientRepository;
 
 @Service
 @Transactional
 // Gestion des erreurs + logique métier (nettoyage de données)
-public class ConfigurationService {
+public class ClientService {
     
     @Autowired
-    private IConfigurationRepository configurationRepository;
+    private IClientRepository ClientRepository;
     
-    public List<Configuration> findAll() {
-        return configurationRepository.findAll();
+    public List<Client> findAll() {
+        return ClientRepository.findAll();
     }
 }

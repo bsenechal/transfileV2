@@ -8,6 +8,7 @@ import com.transfile.model.Configuration;
 
 // Classe pour communiquer avec la BDD + Gestion des transactions
 public interface IConfigurationRepository extends CrudRepository<Configuration, Long> {
-	
+    
+    @Override
     public List<Configuration> findAll();
 }
