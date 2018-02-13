@@ -1,7 +1,8 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
-
+CREATE DATABASE test;
+USE test;
 
 #------------------------------------------------------------
 # Table: LOG_ID
@@ -75,6 +76,7 @@ CREATE TABLE HISTORY_PROJECT(
 
 CREATE TABLE CONFIGURATION(
         CONFIG_ID        int (11) Auto_increment  NOT NULL ,
+        LOG_TYPE         Varchar (255) ,
         PROFILE          Varchar (255) ,
         NAME_FILE        Varchar (255) ,
         NAME_ZIP         Varchar (255) ,
@@ -100,10 +102,10 @@ CREATE TABLE CONFIGURATION(
 
 CREATE TABLE HISTORY_CONFIGURATION(
         CONFIG_ID        int (11) Auto_increment  NOT NULL ,
+        LOG_TYPE         Varchar (255) ,
         UPDATE_DATE      TimeStamp ,
         NAME_ZIP         Varchar (255) ,
-        DELETE_FLAG      Varchar (255) ,
-        DELETE_FLAG_1    Bool ,
+        DELETE_FLAG      Bool ,
         MULTIPLE         Int ,
         OCCURENCE        Int ,
         FORCED_NAME      Varchar (255) ,
@@ -168,7 +170,7 @@ CREATE TABLE CLIENT(
 #------------------------------------------------------------
 
 CREATE TABLE work_on(
-        JOBS        int (11) Auto_increment  ,
+        JOBS        int (11) ,
         EMPLOYEE_ID Int NOT NULL ,
         PROJECT_ID  Int NOT NULL ,
         PRIMARY KEY (EMPLOYEE_ID ,PROJECT_ID )
