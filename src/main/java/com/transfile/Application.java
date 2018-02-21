@@ -30,45 +30,50 @@ import com.transfile.file_type.Sendfile;
 @EnableTransactionManagement
 public class Application {
     private final static Logger LOGGER = Logger.getLogger(Application.class);
-
+    
     public static void main(final String[] args) {
         Application.LOGGER.info("Début du batch");
-
+        
         SpringApplication.run(Application.class, args);
-
+        
         Application.LOGGER.info("Fin du batch");
     }
-
+    
     @Autowired
     private Sendfile sendfile;
     @Autowired
     private Aborep aborep;
     @Autowired
     private Aboreq aboreq;
-
+    
     @Autowired
     private Offbatcdftor offbatcdftor;
-
+    
     @Autowired
     private Requete requete;
-
+    
     @Bean
     public CommandLineRunner run(final ApplicationContext appContext) {
         return args -> {
-
-            final String param = "all";
-
-            switch (param) {
+            String fileName = "";
+            // TODO Path pour les fichiers output
+            // TODO transcode avec variable_type
+            
+            if (args.length > 0) {
+                fileName = args[0];
+            }
+            
+            switch (fileName) {
             case "aborep": {
                 aborep.generateFile();
                 break;
             }
-
+            
             case "aboreq": {
                 aboreq.generateFile();
                 break;
             }
-
+            
             case "offbatcdftor": {
                 offbatcdftor.generateFile();
                 break;
@@ -77,24 +82,21 @@ public class Application {
                 requete.generateFile();
                 break;
             }
-
+            
             case "sendfile": {
                 sendfile.generateFile();
                 break;
             }
-            case "all": {
+            default: {
                 aborep.generateFile();
                 aboreq.generateFile();
                 offbatcdftor.generateFile();
                 requete.generateFile();
                 sendfile.generateFile();
-                break;
             }
-            default: {
-                throw new Exception("Nom de fichier à générer inconnu");
-            }
+            
             }
         };
     }
-
+    
 }

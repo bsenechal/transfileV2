@@ -20,7 +20,7 @@ public class SOBOffbatcdftor extends ALogType {
 
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.SOB.getValue());
+        final List<Configuration> configs = configurationService.findByLogType(LogType.SOB_RESPONSE.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
         String defaultZipName;

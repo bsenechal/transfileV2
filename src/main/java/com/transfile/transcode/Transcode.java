@@ -21,6 +21,10 @@ public class Transcode {
     @Column(name = "LOG_TYPE", length = 255)
     private LogType logType;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "VARIABLE_TYPE", length = 255)
+    private VariableType variableType;
+    
     @Column(name = "DB_VALUE", length = 255)
     private String dbValue;
 
@@ -28,17 +32,17 @@ public class Transcode {
     private String confValue;
 
     /**
-     * @return the confValue
+     * @return the transcodeId
      */
-    public String getConfValue() {
-        return confValue;
+    public Integer getTranscodeId() {
+        return transcodeId;
     }
 
     /**
-     * @return the dbValue
+     * @param transcodeId the transcodeId to set
      */
-    public String getDbValue() {
-        return dbValue;
+    public void setTranscodeId(Integer transcodeId) {
+        this.transcodeId = transcodeId;
     }
 
     /**
@@ -49,41 +53,51 @@ public class Transcode {
     }
 
     /**
-     * @return the transcodeId
+     * @param logType the logType to set
      */
-    public Integer getTranscodeId() {
-        return transcodeId;
-    }
-
-    /**
-     * @param confValue
-     *            the confValue to set
-     */
-    public void setConfValue(final String confValue) {
-        this.confValue = confValue;
-    }
-
-    /**
-     * @param dbValue
-     *            the dbValue to set
-     */
-    public void setDbValue(final String dbValue) {
-        this.dbValue = dbValue;
-    }
-
-    /**
-     * @param logType
-     *            the logType to set
-     */
-    public void setLogType(final LogType logType) {
+    public void setLogType(LogType logType) {
         this.logType = logType;
     }
 
     /**
-     * @param transcodeId
-     *            the transcodeId to set
+     * @return the variableType
      */
-    public void setTranscodeId(final Integer transcodeId) {
-        this.transcodeId = transcodeId;
+    public VariableType getVariableType() {
+        return variableType;
+    }
+
+    /**
+     * @param variableType the variableType to set
+     */
+    public void setVariableType(VariableType variableType) {
+        this.variableType = variableType;
+    }
+
+    /**
+     * @return the dbValue
+     */
+    public String getDbValue() {
+        return dbValue;
+    }
+
+    /**
+     * @param dbValue the dbValue to set
+     */
+    public void setDbValue(String dbValue) {
+        this.dbValue = dbValue;
+    }
+
+    /**
+     * @return the confValue
+     */
+    public String getConfValue() {
+        return confValue;
+    }
+
+    /**
+     * @param confValue the confValue to set
+     */
+    public void setConfValue(String confValue) {
+        this.confValue = confValue;
     }
 }

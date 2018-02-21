@@ -53,7 +53,7 @@ public class Wallet extends ALogType {
                     + transcodeService.getWalletNormalise(String.valueOf(config.getMultiple())) + ALogType.COLON
                     + System.getProperty("line.separator");
         }
-
+        
         return fileContent.replace(ALogType.NULL, ALogType.EMPTY);
     }
 }
