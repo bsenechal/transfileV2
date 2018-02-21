@@ -20,16 +20,16 @@ public class SOBOffbatcdftor extends ALogType {
 
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.SOB_RESPONSE.getValue());
+        final List<Configuration> configs = configurationService.findByLogType(LogType.SOB_response.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
-            defaultZipName = config.getNameZip() + config.getOccurence()
+            defaultValue = config.getNameZip() + config.getOccurence()
                     + transcodeService.getSOBResponseNormalise(String.valueOf(config.getOccurence()));
 
             forcedValue = config.getForcedZipName() + ALogType.COLON + config.getForcedFileName();
@@ -39,7 +39,7 @@ public class SOBOffbatcdftor extends ALogType {
             // Il manque le SIPS_ALIAS
             fileContent = fileContent + SOBOffbatcdftor.UBZIP + ALogType.DOT + client.getSipsAlias() + ALogType.COLON
                     + client.getMerchantFtp() + ALogType.DOT + SOBOffbatcdftor.FTP_B + ALogType.DOT
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.COLON
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.COLON
                     + transcodeService.getSOBResponseNormalise(client.getProtocol())
                     + System.getProperty("line.separator");
         }

@@ -22,16 +22,16 @@ public class SOBRequete extends ALogType {
 
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.SOB_REQUEST.getValue());
+        final List<Configuration> configs = configurationService.findByLogType(LogType.SOB_request.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
-            defaultZipName = config.getNameZip() + config.getOccurence()
+            defaultValue = config.getNameZip() + config.getOccurence()
                     + transcodeService.getSOBRequestNormalise(String.valueOf(config.getOccurence()));
 
             forcedValue = config.getForcedZipName();
@@ -40,7 +40,7 @@ public class SOBRequete extends ALogType {
 
             // Il manque le SIPS_ALIAS
             fileContent = fileContent + SOBRequete.ZIP + ALogType.COLON + client.getMerchantFtp() + ALogType.DOT
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.COLON
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.COLON
                     + SOBRequete.OFFBATCH_ENC + ALogType.DOT + ALogType.DOT + SOBRequete.OFFICE
                     + System.getProperty("line.separator");
         }

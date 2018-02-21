@@ -18,17 +18,17 @@ public class SUBAborep extends ALogType {
 
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.SUB.getValue());
+        final List<Configuration> configs = configurationService.findByLogType(LogType.SUB_response.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
-            defaultZipName = config.getNameZip() + config.getOccurence()
-                    + transcodeService.getSUBNormalise(config.getExtention());
+            defaultValue = config.getNameZip() + config.getOccurence()
+                    + transcodeService.getSUBResponseNormalise(config.getExtention());
 
             forcedValue = config.getForcedFileName();
 
@@ -37,8 +37,8 @@ public class SUBAborep extends ALogType {
             // Il manque le SIPS_ALIAS
             fileContent = fileContent + SUBAborep.SUBUBZ + ALogType.DOT + SUBAborep.ABOREPNET + ALogType.DOT + client.getSipsAlias()
                     + ALogType.DOT + ALogType.ASTERIX + ALogType.COLON + SUBAborep.ABOREPNET + ALogType.COLON
-                    + client.getMerchantFtp() + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName)
-                    + ALogType.COLON + transcodeService.getSUBNormalise(client.getProtocol())
+                    + client.getMerchantFtp() + checkForcedValue(config, forcedValue, forcedExtension, defaultValue)
+                    + ALogType.COLON + transcodeService.getSUBResponseNormalise(client.getProtocol())
                     + System.getProperty("line.separator");
         }
 

@@ -27,14 +27,14 @@ public class Transaction extends ALogType {
         final List<Configuration> configs = configurationService.findByLogType(LogType.transaction.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
 
-            defaultZipName = config.getNameZip() + config.getOccurence() + ALogType.DOT
+            defaultValue = config.getNameZip() + config.getOccurence() + ALogType.DOT
                     + transcodeService.getTransactionNormalise(config.getExtention()) + ALogType.COLON
                     + config.getNameFile() + config.getOccurence();
 
@@ -45,7 +45,7 @@ public class Transaction extends ALogType {
             fileContent = fileContent + Transaction.UBZ_REPORTS + ALogType.DOT + client.getSipsAlias() + ALogType.DOT
                     + ALogType.ASTERIX + ALogType.COLON + config.getProfile() + ALogType.COLON + client.getMerchantFtp()
                     + ALogType.DOT + Transaction.FTP_B + ALogType.DOT
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.DOT
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.DOT
                     + transcodeService.getTransactionNormalise(config.getDateFormat()) + ALogType.COLON
                     + transcodeService.getTransactionNormalise(client.getProtocol()) + ALogType.COLON
                     + transcodeService.getTransactionNormalise(String.valueOf(config.getDeleteFlag())) + ALogType.COLON

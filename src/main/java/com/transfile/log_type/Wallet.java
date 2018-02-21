@@ -28,14 +28,14 @@ public class Wallet extends ALogType {
         final List<Configuration> configs = configurationService.findByLogType(LogType.wallet.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
 
-            defaultZipName = config.getNameZip() + config.getOccurence() + ALogType.DOT
+            defaultValue = config.getNameZip() + config.getOccurence() + ALogType.DOT
                     + transcodeService.getWalletNormalise(config.getExtention()) + ALogType.COLON + config.getNameFile()
                     + config.getOccurence();
 
@@ -46,7 +46,7 @@ public class Wallet extends ALogType {
             fileContent = fileContent + Wallet.UBZ_WALLET + client.getMerchantId() + ALogType.DASH + client.getSipsAlias()
                     + ALogType.DOT + ALogType.ASTERIX + ALogType.COLON + config.getProfile() + ALogType.COLON
                     + client.getMerchantFtp() + ALogType.DOT + Wallet.FTP_B + ALogType.DOT
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.DOT
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.DOT
                     + transcodeService.getWalletNormalise(config.getDateFormat()) + ALogType.COLON
                     + transcodeService.getWalletNormalise(client.getProtocol()) + ALogType.COLON
                     + transcodeService.getWalletNormalise(String.valueOf(config.getDeleteFlag())) + ALogType.COLON

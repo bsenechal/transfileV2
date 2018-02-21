@@ -28,14 +28,14 @@ public class Chargeback extends ALogType {
         final List<Configuration> configs = configurationService.findByLogType(LogType.chargeback.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
 
-            defaultZipName = config.getNameZip() + config.getOccurence() + ALogType.DOT
+            defaultValue = config.getNameZip() + config.getOccurence() + ALogType.DOT
                     + transcodeService.getChargebackNormalise(config.getExtention()) + ALogType.COLON
                     + config.getNameFile() + config.getOccurence();
 
@@ -48,7 +48,7 @@ public class Chargeback extends ALogType {
                     + client.getMerchantId() + ALogType.DASH + client.getSipsAlias() + ALogType.DOT + ALogType.ASTERIX
                     + ALogType.COLON + config.getProfile() + ALogType.COLON + client.getMerchantFtp() + ALogType.DOT
                     + Chargeback.FTP_B + ALogType.DOT
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.DOT
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.DOT
                     + transcodeService.getChargebackNormalise(config.getDateFormat()) + ALogType.COLON
                     + transcodeService.getChargebackNormalise(client.getProtocol()) + ALogType.COLON
                     + transcodeService.getChargebackNormalise(String.valueOf(config.getDeleteFlag())) + ALogType.COLON

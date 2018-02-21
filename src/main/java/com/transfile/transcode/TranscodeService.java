@@ -41,19 +41,25 @@ public class TranscodeService implements ITranscodeService {
 
     @Override
     public String getSOBRequestNormalise(final String valeurDB) throws TranscodeException {
-        return getValeurNormalise(LogType.SOB_REQUEST, valeurDB);
+        return getValeurNormalise(LogType.SOB_request, valeurDB);
     }
     
     @Override
     public String getSOBResponseNormalise(final String valeurDB) throws TranscodeException {
-        return getValeurNormalise(LogType.SOB_RESPONSE, valeurDB);
+        return getValeurNormalise(LogType.SOB_response, valeurDB);
     }
 
     @Override
-    public String getSUBNormalise(final String valeurDB) throws TranscodeException {
-        return getValeurNormalise(LogType.SUB, valeurDB);
+    public String getSUBRequestNormalise(final String valeurDB) throws TranscodeException {
+        return getValeurNormalise(LogType.SUB_request, valeurDB);
     }
 
+    @Override
+    public String getSUBResponseNormalise(final String valeurDB) throws TranscodeException {
+        return getValeurNormalise(LogType.SUB_response, valeurDB);
+    }
+
+    
     @Override
     public String getTransactionNormalise(final String valeurDB) throws TranscodeException {
         return getValeurNormalise(LogType.transaction, valeurDB);

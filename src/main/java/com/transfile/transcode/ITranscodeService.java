@@ -11,8 +11,10 @@ public interface ITranscodeService {
     
     public String getSOBResponseNormalise(String valeurDB) throws TranscodeException;
 
-    public String getSUBNormalise(String valeurDB) throws TranscodeException;
+    public String getSUBRequestNormalise(String valeurDB) throws TranscodeException;
 
+    public String getSUBResponseNormalise(String valeurDB) throws TranscodeException;
+    
     public String getTransactionNormalise(String valeurDB) throws TranscodeException;
 
     public String getWalletNormalise(String valeurDB) throws TranscodeException;

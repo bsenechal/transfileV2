@@ -24,13 +24,13 @@ public class Matching extends ALogType {
         final List<Configuration> configs = configurationService.findByLogType(LogType.matching.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
-            defaultZipName = config.getNameZip() + config.getOccurence()
+            defaultValue = config.getNameZip() + config.getOccurence()
                     + transcodeService.getMatchingNormalise(config.getExtention()) + ALogType.COLON
                     + config.getNameFile() + config.getOccurence();
 
@@ -43,7 +43,7 @@ public class Matching extends ALogType {
                     + client.getMerchantId() + ALogType.DASH + client.getSipsAlias() + ALogType.DOT + ALogType.ASTERIX
                     + ALogType.COLON + config.getProfile() + ALogType.COLON + client.getMerchantFtp() + ALogType.DOT
                     + Matching.FTP_B + ALogType.DOT
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.DOT
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.DOT
                     + transcodeService.getMatchingNormalise(config.getDateFormat()) + ALogType.COLON
                     + transcodeService.getMatchingNormalise(client.getProtocol()) + ALogType.COLON
                     + transcodeService.getMatchingNormalise(String.valueOf(config.getDeleteFlag())) + ALogType.COLON

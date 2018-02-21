@@ -14,16 +14,16 @@ public class SUBAboreq extends ALogType {
 
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.SUB.getValue());
+        final List<Configuration> configs = configurationService.findByLogType(LogType.SUB_request.getValue());
         String fileContent = ALogType.EMPTY;
         Client client;
-        String defaultZipName;
+        String defaultValue;
         String forcedValue;
         String forcedExtension;
 
         for (final Configuration config : configs) {
             client = config.getClient();
-            defaultZipName = config.getNameZip() + config.getOccurence();
+            defaultValue = config.getNameZip() + config.getOccurence();
 
             forcedValue = config.getForcedFileName();
 
@@ -31,7 +31,7 @@ public class SUBAboreq extends ALogType {
 
             // Il manque le SIPS_ALIAS
             fileContent = fileContent + client.getMerchantFtp()
-                    + checkForcedValue(config, forcedValue, forcedExtension, defaultZipName) + ALogType.COLON
+                    + checkForcedValue(config, forcedValue, forcedExtension, defaultValue) + ALogType.COLON
                     + ALogType.DOT + SUBAboreq.PAYMENT_7Z
                     + System.getProperty("line.separator");
         }
