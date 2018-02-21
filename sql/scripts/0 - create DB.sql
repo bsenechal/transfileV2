@@ -125,9 +125,10 @@ CREATE TABLE HISTORY_CONFIGURATION(
 
 CREATE TABLE TRANSCODE(
         TRANSCODE_ID int (11) Auto_increment  NOT NULL ,
-        LOG_TYPE     Varchar (255) ,
-        DB_VALUE     Varchar (255) ,
-        CONF_VALUE   Varchar (255) ,
+        LOG_TYPE          Varchar (255) ,
+        VARIABLE_TYPE     Varchar (255) ,
+        DB_VALUE          Varchar (255) ,
+        CONF_VALUE        Varchar (255) ,
         PRIMARY KEY (TRANSCODE_ID )
 )ENGINE=InnoDB;
 
