@@ -7,7 +7,9 @@ public interface ITranscodeService {
 
     public String getOperationNormalise(String valeurDB) throws TranscodeException;
 
-    public String getSOBNormalise(String valeurDB) throws TranscodeException;
+    public String getSOBRequestNormalise(String valeurDB) throws TranscodeException;
+    
+    public String getSOBResponseNormalise(String valeurDB) throws TranscodeException;
 
     public String getSUBNormalise(String valeurDB) throws TranscodeException;
 

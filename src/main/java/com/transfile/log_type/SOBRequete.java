@@ -32,7 +32,7 @@ public class SOBRequete extends ALogType {
         for (final Configuration config : configs) {
             client = config.getClient();
             defaultZipName = config.getNameZip() + config.getOccurence()
-                    + transcodeService.getSOBNormalise(String.valueOf(config.getOccurence()));
+                    + transcodeService.getSOBRequestNormalise(String.valueOf(config.getOccurence()));
 
             forcedValue = config.getForcedZipName();
 

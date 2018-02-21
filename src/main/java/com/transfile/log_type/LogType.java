@@ -13,12 +13,12 @@ public enum LogType {
     /**
      *
      */
-    SOB_REQUEST("sob-request"),
+    SOB_REQUEST("SOB-request"),
     
     /**
     *
     */
-    SOB_RESPONSE("sob-response"),
+    SOB_RESPONSE("SOB-response"),
    
     /**
      *
