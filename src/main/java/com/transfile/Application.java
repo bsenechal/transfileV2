@@ -56,10 +56,6 @@ public class Application {
     public CommandLineRunner run(final ApplicationContext appContext) {
         return args -> {
 
-            // ------------------ Fichiers -----------------
-
-            // Param va être passé en paramètre du batch mais pour le moment il est en dur
-            // pour les devs
             final String param = "all";
 
             switch (param) {

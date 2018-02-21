@@ -33,6 +33,14 @@ public class Sendfile extends AFileType {
     @Autowired
     private Wallet wallet;
     
+    
+    // ----> A décommenter pour la migration de Requete et Offbatcdftor dans sendfile
+//    @Autowired
+//    private SOBOffbatcdftor sobOffbatcdftor;
+//    
+//    @Autowired
+//    private SOBRequete sobRequete;
+    
     public Sendfile() {
         super.fileName = SENDFILE;
     }
@@ -46,6 +54,10 @@ public class Sendfile extends AFileType {
         content.add(wallet.getContent());
         content.add(operation.getContent());
         content.add(transaction.getContent());
+        
+        // ----> A décommenter pour la migration de Requete et Offbatcdftor dans sendfile
+//        content.add(sobOffbatcdftor.getContent());
+//        content.add(sobRequete.getContent());
 
         super.fileContent = content.stream().collect(Collectors.joining());
 
