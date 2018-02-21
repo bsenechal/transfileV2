@@ -15,108 +15,86 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.transfile.model.file_type.AFileType;
-import com.transfile.model.file_type.Aborep;
-import com.transfile.model.file_type.Aboreq;
-import com.transfile.model.file_type.Offbatcdftor;
-import com.transfile.model.file_type.Requete;
-import com.transfile.model.file_type.Sendfile;
+import com.transfile.file_type.Aborep;
+import com.transfile.file_type.Aboreq;
+import com.transfile.file_type.Offbatcdftor;
+import com.transfile.file_type.Requete;
+import com.transfile.file_type.Sendfile;
 
-@SpringBootApplication(scanBasePackages = "com.transfile", exclude = {EmbeddedServletContainerAutoConfiguration.class, 
-        WebMvcAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = "com.transfile", exclude = { EmbeddedServletContainerAutoConfiguration.class,
+        WebMvcAutoConfiguration.class })
 @Configuration
 @EnableAutoConfiguration
-@EntityScan(basePackages = { "com.transfile.model" })
-@EnableJpaRepositories(basePackages = { "com.transfile.repository" })
+@EntityScan
+@EnableJpaRepositories
 @EnableTransactionManagement
 public class Application {
+    private final static Logger LOGGER = Logger.getLogger(Application.class);
+
+    public static void main(final String[] args) {
+        Application.LOGGER.info("Début du batch");
+
+        SpringApplication.run(Application.class, args);
+
+        Application.LOGGER.info("Fin du batch");
+    }
+
     @Autowired
     private Sendfile sendfile;
     @Autowired
     private Aborep aborep;
     @Autowired
     private Aboreq aboreq;
+
     @Autowired
     private Offbatcdftor offbatcdftor;
+
     @Autowired
     private Requete requete;
-    
-    private final static Logger LOGGER = Logger.getLogger(Application.class);
-    
-    public static void main(String[] args) {
-        Application.LOGGER.info("Début du batch");
-        
-        SpringApplication.run(Application.class, args);
-        
-        Application.LOGGER.info("Fin du batch");
-    }
-    
+
     @Bean
-    public CommandLineRunner run(ApplicationContext appContext) {
+    public CommandLineRunner run(final ApplicationContext appContext) {
         return args -> {
-            
-            // ------------------ Fichiers -----------------
-            
-            // Param va être passé en paramètre du batch mais pour le moment il est en dur
-            // pour les devs
-            final String param = "sendfile";
-            
-            AFileType fileType = null;
-            
+
+            final String param = "all";
+
             switch (param) {
             case "aborep": {
-                fileType = aborep;
+                aborep.generateFile();
                 break;
             }
-            
+
             case "aboreq": {
-                fileType = aboreq;
+                aboreq.generateFile();
                 break;
             }
-            
+
             case "offbatcdftor": {
-                fileType = offbatcdftor;
+                offbatcdftor.generateFile();
                 break;
             }
             case "requete": {
-                fileType = requete;
+                requete.generateFile();
                 break;
             }
-            
+
             case "sendfile": {
-                fileType = sendfile;
+                sendfile.generateFile();
                 break;
             }
-            
+            case "all": {
+                aborep.generateFile();
+                aboreq.generateFile();
+                offbatcdftor.generateFile();
+                requete.generateFile();
+                sendfile.generateFile();
+                break;
+            }
             default: {
                 throw new Exception("Nom de fichier à générer inconnu");
             }
             }
-            
-            fileType.generateFile();
-            
-            // ------------------ BDD -----------------
-            // On va bouger cette partie après
-            
-            // // Récupère les données
-            // List<com.transfile.model.Configuration> configs =
-            // configurationService.findAll();
-            //
-            // // Affiche
-            // for (com.transfile.model.Configuration config : configs) {
-            //
-            // System.out.println(config.getConfigurationId());
-            //
-            // System.out.println(config.getNameFile());
-            // }
-            
-            // TODO faire pareil Client
-            // Le bean client avec les annotations de mapping pour la BDD
-            // IClientService : Ensemble des comportements / Déclaration des fonctions
-            // ClientService : Appeler le IClientRepository
-            // IClientRepository : Comme l'autre x)
-            
         };
     }
-    
+
 }

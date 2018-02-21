@@ -1,27 +1,28 @@
-package com.transfile.model.file_type;
+package com.transfile.file_type;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.transfile.model.log_type.SOBOffbatcdftor;
+import com.transfile.log_type.SOBOffbatcdftor;
 
 @Component
 public class Offbatcdftor extends AFileType {
     
+    private static final String OFFBATCDFTOR = "offbatcdftor.conf";
+
     @Autowired
     private SOBOffbatcdftor sobOffbatcdftor;
-    
+
     public Offbatcdftor() {
-        super.filePath = "C:\\Workspace\\Transfile\\transfileV2";
-        super.fileName = "offbatcdftor.conf";
+        super.fileName = OFFBATCDFTOR;
     }
-    
+
     @Override
     public void generateFile() {
         fileContent = sobOffbatcdftor.getContent();
-        
+
         super.appendFile();
-        
+
     }
-    
+
 }
