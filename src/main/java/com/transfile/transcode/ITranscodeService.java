@@ -1,21 +1,24 @@
+/*
+ * 
+ */
 package com.transfile.transcode;
 
 public interface ITranscodeService {
-    public String getChargebackNormalise(String valeurDB) throws TranscodeException;
+    public String getChargebackNormalise(final String valeurDB, VariableType variableType);
 
-    public String getMatchingNormalise(String valeurDB) throws TranscodeException;
+    public String getMatchingNormalise(final String valeurDB, VariableType variableType);
 
-    public String getOperationNormalise(String valeurDB) throws TranscodeException;
+    public String getOperationNormalise(final String valeurDB, VariableType variableType);
 
-    public String getSOBRequestNormalise(String valeurDB) throws TranscodeException;
-    
-    public String getSOBResponseNormalise(String valeurDB) throws TranscodeException;
+    public String getSOBRequestNormalise(final String valeurDB, VariableType variableType);
 
-    public String getSUBRequestNormalise(String valeurDB) throws TranscodeException;
+    public String getSOBResponseNormalise(final String valeurDB, VariableType variableType);
 
-    public String getSUBResponseNormalise(String valeurDB) throws TranscodeException;
-    
-    public String getTransactionNormalise(String valeurDB) throws TranscodeException;
+    public String getSUBRequestNormalise(final String valeurDB, VariableType variableType);
 
-    public String getWalletNormalise(String valeurDB) throws TranscodeException;
+    public String getSUBResponseNormalise(final String valeurDB, VariableType variableType);
+
+    public String getTransactionNormalise(final String valeurDB, VariableType variableType);
+
+    public String getWalletNormalise(final String valeurDB, VariableType variableType);
 }

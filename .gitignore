@@ -1,6 +1,7 @@
 # Generated conf file
 *.conf
 *.ini
+flag
 
 # Compiled class file
 *.class

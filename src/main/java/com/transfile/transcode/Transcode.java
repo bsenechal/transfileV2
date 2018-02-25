@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.transfile.transcode;
 
 import javax.persistence.Column;
@@ -7,7 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.transfile.log_type.LogType;
+import com.transfile.logtype.LogType;
 
 @Entity
 @Table(name = "TRANSCODE")
@@ -24,7 +27,7 @@ public class Transcode {
     @Enumerated(EnumType.STRING)
     @Column(name = "VARIABLE_TYPE", length = 255)
     private VariableType variableType;
-    
+
     @Column(name = "DB_VALUE", length = 255)
     private String dbValue;
 
@@ -32,45 +35,10 @@ public class Transcode {
     private String confValue;
 
     /**
-     * @return the transcodeId
+     * @return the confValue
      */
-    public Integer getTranscodeId() {
-        return transcodeId;
-    }
-
-    /**
-     * @param transcodeId the transcodeId to set
-     */
-    public void setTranscodeId(Integer transcodeId) {
-        this.transcodeId = transcodeId;
-    }
-
-    /**
-     * @return the logType
-     */
-    public LogType getLogType() {
-        return logType;
-    }
-
-    /**
-     * @param logType the logType to set
-     */
-    public void setLogType(LogType logType) {
-        this.logType = logType;
-    }
-
-    /**
-     * @return the variableType
-     */
-    public VariableType getVariableType() {
-        return variableType;
-    }
-
-    /**
-     * @param variableType the variableType to set
-     */
-    public void setVariableType(VariableType variableType) {
-        this.variableType = variableType;
+    public String getConfValue() {
+        return confValue;
     }
 
     /**
@@ -81,23 +49,63 @@ public class Transcode {
     }
 
     /**
-     * @param dbValue the dbValue to set
+     * @return the logType
      */
-    public void setDbValue(String dbValue) {
+    public LogType getLogType() {
+        return logType;
+    }
+
+    /**
+     * @return the transcodeId
+     */
+    public Integer getTranscodeId() {
+        return transcodeId;
+    }
+
+    /**
+     * @return the variableType
+     */
+    public VariableType getVariableType() {
+        return variableType;
+    }
+
+    /**
+     * @param confValue
+     *            the confValue to set
+     */
+    public void setConfValue(final String confValue) {
+        this.confValue = confValue;
+    }
+
+    /**
+     * @param dbValue
+     *            the dbValue to set
+     */
+    public void setDbValue(final String dbValue) {
         this.dbValue = dbValue;
     }
 
     /**
-     * @return the confValue
+     * @param logType
+     *            the logType to set
      */
-    public String getConfValue() {
-        return confValue;
+    public void setLogType(final LogType logType) {
+        this.logType = logType;
     }
 
     /**
-     * @param confValue the confValue to set
+     * @param transcodeId
+     *            the transcodeId to set
      */
-    public void setConfValue(String confValue) {
-        this.confValue = confValue;
+    public void setTranscodeId(final Integer transcodeId) {
+        this.transcodeId = transcodeId;
+    }
+
+    /**
+     * @param variableType
+     *            the variableType to set
+     */
+    public void setVariableType(final VariableType variableType) {
+        this.variableType = variableType;
     }
 }

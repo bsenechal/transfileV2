@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.transfile.client;
 
 import java.util.List;
@@ -10,6 +13,10 @@ import javax.persistence.Table;
 
 import com.transfile.configuration.Configuration;
 
+/**
+ * Client bean
+ *
+ */
 @Entity
 @Table(name = "CLIENT")
 public class Client {

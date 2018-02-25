@@ -4,11 +4,11 @@
 package com.transfile.transcode;
 
 /**
- * 
- * 
+ *
+ *
  */
 public enum VariableType {
-    
+
     /**
      *
      */
@@ -38,7 +38,6 @@ public enum VariableType {
      *
      */
     MULTIPLE("MULTIPLE");
-    
 
     private String value;
 

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.transfile;
 
 import org.apache.log4j.Logger;
@@ -15,12 +18,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.transfile.file_type.Aborep;
-import com.transfile.file_type.Aboreq;
-import com.transfile.file_type.Offbatcdftor;
-import com.transfile.file_type.Requete;
-import com.transfile.file_type.Sendfile;
+import com.transfile.filetype.Aborep;
+import com.transfile.filetype.Aboreq;
+import com.transfile.filetype.Flag;
+import com.transfile.filetype.Offbatcdftor;
+import com.transfile.filetype.Requete;
+import com.transfile.filetype.Sendfile;
 
+/**
+ * Main class
+ *
+ */
 @SpringBootApplication(scanBasePackages = "com.transfile", exclude = { EmbeddedServletContainerAutoConfiguration.class,
         WebMvcAutoConfiguration.class })
 @Configuration
@@ -29,74 +37,74 @@ import com.transfile.file_type.Sendfile;
 @EnableJpaRepositories
 @EnableTransactionManagement
 public class Application {
-    private final static Logger LOGGER = Logger.getLogger(Application.class);
-    
+    private static final Logger LOGGER = Logger.getLogger(Application.class);
+
     public static void main(final String[] args) {
-        Application.LOGGER.info("Début du batch");
-        
+        Application.LOGGER.info("Starting Transfile application");
+
         SpringApplication.run(Application.class, args);
-        
-        Application.LOGGER.info("Fin du batch");
+
+        Application.LOGGER.info("Transfile application ended without error");
     }
-    
+
     @Autowired
     private Sendfile sendfile;
     @Autowired
     private Aborep aborep;
     @Autowired
     private Aboreq aboreq;
-    
     @Autowired
     private Offbatcdftor offbatcdftor;
-    
     @Autowired
     private Requete requete;
-    
+
+    @Autowired
+    private Flag flag;
+
+    private void launchFileGeneration(final String fileName) {
+        flag.generateFile();
+
+        switch (fileName) {
+        case "aborep":
+            aborep.generateFile();
+            break;
+
+        case "aboreq":
+            aboreq.generateFile();
+            break;
+
+        case "offbatcdftor":
+            offbatcdftor.generateFile();
+            break;
+
+        case "requete":
+            requete.generateFile();
+            break;
+
+        case "sendfile":
+            sendfile.generateFile();
+            break;
+
+        default:
+            aborep.generateFile();
+            aboreq.generateFile();
+            offbatcdftor.generateFile();
+            requete.generateFile();
+            sendfile.generateFile();
+        }
+    }
+
     @Bean
     public CommandLineRunner run(final ApplicationContext appContext) {
         return args -> {
             String fileName = "";
-            // TODO Path pour les fichiers output
-            // TODO transcode avec variable_type
-            
+
             if (args.length > 0) {
                 fileName = args[0];
             }
-            
-            switch (fileName) {
-            case "aborep": {
-                aborep.generateFile();
-                break;
-            }
-            
-            case "aboreq": {
-                aboreq.generateFile();
-                break;
-            }
-            
-            case "offbatcdftor": {
-                offbatcdftor.generateFile();
-                break;
-            }
-            case "requete": {
-                requete.generateFile();
-                break;
-            }
-            
-            case "sendfile": {
-                sendfile.generateFile();
-                break;
-            }
-            default: {
-                aborep.generateFile();
-                aboreq.generateFile();
-                offbatcdftor.generateFile();
-                requete.generateFile();
-                sendfile.generateFile();
-            }
-            
-            }
+
+            launchFileGeneration(fileName);
+
         };
     }
-    
 }
