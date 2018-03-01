@@ -10,32 +10,32 @@ import com.transfile.transcode.VariableType;
 
 @Component
 public class Matching extends ALogType {
-    
+
     private static final String UBZ_MATCHING = "ubz-matching.jrb-report";
-    
+
     private static final String FTP_B = "ftp_b";
-    
+
     @Override
     public String getContent() {
         configs = configurationService.findByLogType(LogType.matching.getValue());
-        
+
         for (final Configuration config : configs) {
             client = config.getClient();
-            
+
             defaultValue.append(config.getNameZip());
             defaultValue.append(config.getOccurence());
             defaultValue.append(transcodeService.getMatchingNormalise(config.getExtention(), VariableType.EXT));
             defaultValue.append(ALogType.COLON);
             defaultValue.append(config.getNameFile() + config.getOccurence());
-            
+
             forcedValue.append(config.getForcedZipName());
-            
+
             forcedValue.append(ALogType.COLON);
-            
+
             forcedValue.append(config.getForcedFileName());
-            
+
             forcedExtension.append(config.getForcedFileName());
-            
+
             fileContent.append(Matching.UBZ_MATCHING);
             fileContent.append(ALogType.DOT);
             fileContent.append(transcodeService.getMatchingNormalise(client.getBankName(), VariableType.BANK_NAME));
@@ -64,8 +64,8 @@ public class Matching extends ALogType {
             fileContent.append(ALogType.COLON);
             fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
-        
+
         return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
     }
-    
+
 }

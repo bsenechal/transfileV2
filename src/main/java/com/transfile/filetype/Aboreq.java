@@ -13,30 +13,30 @@ import com.transfile.logtype.SUBAboreq;
 
 @Component
 public class Aboreq extends AFileType {
-    
+
     @Value("${output.aboreq.path}")
     private String aboreqPath;
-    
+
     @Value("${output.aboreq.name}")
     private String aboreqFileName;
-    
+
     @Autowired
     private SUBAboreq subAboreq;
-    
+
     @Override
     public void generateFile() {
         final StringBuilder content = new StringBuilder();
-
+        
         content.append("# SUB");
         content.append(System.getProperty(AFileType.LINE_SEPARATOR));
         content.append(subAboreq.getContent());
-
+        
         fileContent = content.toString();
-        
+
         super.appendFile();
-        
+
     }
-    
+
     @PostConstruct
     private void initialize() {
         super.fileName = aboreqFileName;

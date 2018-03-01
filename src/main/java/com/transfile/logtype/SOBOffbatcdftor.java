@@ -11,32 +11,32 @@ import com.transfile.transcode.VariableType;
 @Component
 public class SOBOffbatcdftor extends ALogType {
     private static final String UBZIP = "ubzip:OFFUBZ.OFFBAREP";
-    
+
     private static final String FTP_B = "ftp_b";
-    
+
     @Override
     public String getContent() {
         configs = configurationService.findByLogType(LogType.SOB_response.getValue());
-        
+
         for (final Configuration config : configs) {
             client = config.getClient();
-            
+
             defaultValue.append(config.getNameZip());
             defaultValue.append(config.getOccurence());
             defaultValue.append(transcodeService.getSOBResponseNormalise(String.valueOf(config.getExtention()), VariableType.EXT));
             defaultValue.append(ALogType.COLON);
             defaultValue.append(config.getNameFile());
-            
+
             forcedValue.append(config.getForcedZipName());
-            
+
             forcedValue.append(ALogType.COLON);
             forcedValue.append(config.getForcedFileName());
-            
+
             forcedExtension.append(config.getForcedFileName());
-            
+
             forcedExtension.append(ALogType.COLON);
             forcedExtension.append(config.getNameFile());
-            
+
             fileContent.append(SOBOffbatcdftor.UBZIP);
             fileContent.append(ALogType.DOT);
             fileContent.append(client.getSipsAlias().toUpperCase());

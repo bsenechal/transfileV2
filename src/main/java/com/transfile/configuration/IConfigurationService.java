@@ -11,7 +11,7 @@ import java.util.List;
  */
 @FunctionalInterface
 public interface IConfigurationService {
-    
+
     /**
      * Find all Configuration by log type
      *

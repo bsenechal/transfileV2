@@ -28,44 +28,44 @@ import com.transfile.transcode.VariableType;
 public class WalletTest {
     private final static String EXPECTED_RESULT = "ubz-wallet.expiring.000000000000003-Metallica.*:CARTE-ECHUES:ubzrock.ftp_b.EXTRACT1..ZIP:extract1.${e_date}:atosftp:::"
             + System.getProperty("line.separator");
-
+    
     @Autowired
     private Wallet wallet;
-
+    
     @MockBean
     private ConfigurationService configurationService;
-
+    
     @MockBean
     private TranscodeService transcodeService;
-
+    
     private Configuration configuration;
-
+    
     private Client client;
-
+    
     @Before
     public void initObjects() {
         configuration = new Configuration(1, "wallet", "CARTE-ECHUES", "extract", "EXTRACT", null, null, 1, null,
                 "tpsips53v;tpsips53s;tpsips54v;tpsips54s", "1.0.1", null, null, "zip", "yymmdd", "1");
         client = new Client(3, "000000000000003", "Metallica", "production", "ftp", "SIPS", "ubzrock");
-
+        
         configuration.setClient(client);
     }
-
+    
     @Test
     public void testGetContent() {
         final List<Configuration> configurations = new ArrayList<>();
         configurations.add(configuration);
-
+        
         Mockito.when(configurationService.findByLogType(LogType.wallet.getValue())).thenReturn(configurations);
-
+        
         Mockito.when(transcodeService.getWalletNormalise("zip", VariableType.EXT)).thenReturn(".ZIP");
         Mockito.when(transcodeService.getWalletNormalise("yymmdd", VariableType.DATE_FORMAT)).thenReturn("${e_date}");
         Mockito.when(transcodeService.getWalletNormalise("ftp", VariableType.PROTOCOL)).thenReturn("atosftp");
         Mockito.when(transcodeService.getWalletNormalise(null, VariableType.DELETE)).thenReturn(null);
         Mockito.when(transcodeService.getWalletNormalise(null, VariableType.MULTIPLE)).thenReturn(null);
-
+        
         Assert.assertEquals(WalletTest.EXPECTED_RESULT, wallet.getContent());
-
+        
     }
-
+    
 }
