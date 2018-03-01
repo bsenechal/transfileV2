@@ -45,6 +45,34 @@ public class Client {
     @OneToMany
     private List<Configuration> configurations;
 
+    
+    /**
+     * 
+     */
+    public Client() {
+        super();
+    }
+
+    /**
+     * @param clientId
+     * @param merchantId
+     * @param sipsAlias
+     * @param environment
+     * @param protocol
+     * @param bankName
+     * @param merchantFtp
+     */
+    public Client(Integer clientId, String merchantId, String sipsAlias, String environment, String protocol, String bankName, String merchantFtp) {
+        super();
+        this.clientId = clientId;
+        this.merchantId = merchantId;
+        this.sipsAlias = sipsAlias;
+        this.environment = environment;
+        this.protocol = protocol;
+        this.bankName = bankName;
+        this.merchantFtp = merchantFtp;
+    }
+
     /**
      * @return the bankName
      */

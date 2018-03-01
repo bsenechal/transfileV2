@@ -22,7 +22,10 @@ public class Configuration {
     @Id
     @Column(name = "CONFIG_ID", precision = 11, scale = 0)
     private Integer configId;
-
+    
+    @Column(name = "LOG_TYPE", length = 255)
+    private String logType;
+    
     @Column(name = "PROFILE", length = 255)
     private String profile;
 
@@ -65,12 +68,57 @@ public class Configuration {
     @Column(name = "PROJECT_ID", precision = 11, scale = 0)
     private String projectId;
 
-    @Column(name = "LOG_TYPE", length = 255)
-    private String logType;
-
     @ManyToOne
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
+
+    
+    /**
+     * 
+     */
+    public Configuration() {
+        super();
+    }
+
+    /**
+     * @param configId
+     * @param profile
+     * @param nameFile
+     * @param nameZip
+     * @param deleteFlag
+     * @param multiple
+     * @param occurence
+     * @param comments
+     * @param hostList
+     * @param releaseNumber
+     * @param forcedZipName
+     * @param forcedFileName
+     * @param extention
+     * @param dateFormat
+     * @param projectId
+     * @param logType
+     */
+    public Configuration(Integer configId, String logType, String profile, String nameFile, String nameZip, Boolean deleteFlag, Integer multiple, Integer occurence,
+            String comments, String hostList, String releaseNumber, String forcedZipName, String forcedFileName, String extention, String dateFormat,
+            String projectId) {
+        super();
+        this.configId = configId;
+        this.logType = logType;
+        this.profile = profile;
+        this.nameFile = nameFile;
+        this.nameZip = nameZip;
+        this.deleteFlag = deleteFlag;
+        this.multiple = multiple;
+        this.occurence = occurence;
+        this.comments = comments;
+        this.hostList = hostList;
+        this.releaseNumber = releaseNumber;
+        this.forcedZipName = forcedZipName;
+        this.forcedFileName = forcedFileName;
+        this.extention = extention;
+        this.dateFormat = dateFormat;
+        this.projectId = projectId;
+    }
 
     /**
      * @return the client
