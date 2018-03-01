@@ -20,5 +20,5 @@ public interface IConfigurationRepository extends CrudRepository<Configuration, 
      * @param logType
      * @return List<Configuration>
      */
-    public List<Configuration> findByLogType(String logType);
+    public List<Configuration> findByLogTypeOrderByClient(String logType);
 }

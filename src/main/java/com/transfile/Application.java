@@ -28,7 +28,7 @@ import com.transfile.filetype.Sendfile;
 /**
  * Main class
  *
- */
+ */ 
 @SpringBootApplication(scanBasePackages = "com.transfile", exclude = { EmbeddedServletContainerAutoConfiguration.class,
         WebMvcAutoConfiguration.class })
 @Configuration

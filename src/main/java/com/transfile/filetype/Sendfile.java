@@ -51,16 +51,40 @@ public class Sendfile extends AFileType {
     public void generateFile() {
         final StringBuilder content = new StringBuilder();
 
+        content.append("# Matching");
+        content.append(System.getProperty("line.separator"));
         content.append(matching.getContent());
+        content.append(System.getProperty("line.separator"));
+        
+        content.append("# Chargeback");
+        content.append(System.getProperty("line.separator"));
         content.append(chargeback.getContent());
+        content.append(System.getProperty("line.separator"));
+        
+        content.append("# Wallet");
+        content.append(System.getProperty("line.separator"));
         content.append(wallet.getContent());
+        content.append(System.getProperty("line.separator"));
+        
+        content.append("# Operation");
+        content.append(System.getProperty("line.separator"));
         content.append(operation.getContent());
+        content.append(System.getProperty("line.separator"));
+        
+        content.append("# Transaction");
+        content.append(System.getProperty("line.separator"));
         content.append(transaction.getContent());
+        content.append(System.getProperty("line.separator"));
 
         // ----> A décommenter pour la migration de Requete et Offbatcdftor dans
-        // sendfile
-        // content.append(sobOffbatcdftor.getContent());
-        // content.append(sobRequete.getContent());
+//        content.append("# SOB");
+//        content.append(System.getProperty("line.separator"));
+//        content.append(sobOffbatcdftor.getContent());
+//        content.append(System.getProperty("line.separator"));
+//        
+//        content.append(System.getProperty("line.separator"));
+//        content.append(sobRequete.getContent());
+//        content.append(System.getProperty("line.separator"));
 
         super.fileContent = content.toString();
 

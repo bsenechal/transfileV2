@@ -25,8 +25,13 @@ public class Aborep extends AFileType {
 
     @Override
     public void generateFile() {
-
-        fileContent = subAborep.getContent();
+        final StringBuilder content = new StringBuilder();
+        
+        content.append("# SUB");
+        content.append(System.getProperty("line.separator"));
+        content.append(subAborep.getContent());
+        
+        fileContent = content.toString();
 
         super.appendFile();
 

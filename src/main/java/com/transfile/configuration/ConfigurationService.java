@@ -24,6 +24,6 @@ public class ConfigurationService implements IConfigurationService {
 
     @Override
     public List<Configuration> findByLogType(final String logType) {
-        return configurationRepository.findByLogType(logType);
+        return configurationRepository.findByLogTypeOrderByClient(logType);
     }
 }

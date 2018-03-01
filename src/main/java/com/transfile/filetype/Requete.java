@@ -25,8 +25,14 @@ public class Requete extends AFileType {
 
     @Override
     public void generateFile() {
-        fileContent = sobRequete.getContent();
+        final StringBuilder content = new StringBuilder();
+        
+        content.append("# SOB");
+        content.append(System.getProperty("line.separator"));
+        content.append(sobRequete.getContent());
 
+        fileContent = content.toString();
+        
         super.appendFile();
     }
 

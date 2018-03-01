@@ -25,7 +25,13 @@ public class Aboreq extends AFileType {
 
     @Override
     public void generateFile() {
-        fileContent = subAboreq.getContent();
+        final StringBuilder content = new StringBuilder();
+        
+        content.append("# SUB");
+        content.append(System.getProperty("line.separator"));
+        content.append(subAboreq.getContent());
+        
+        fileContent = content.toString();
 
         super.appendFile();
 

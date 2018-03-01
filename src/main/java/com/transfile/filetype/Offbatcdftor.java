@@ -25,8 +25,14 @@ public class Offbatcdftor extends AFileType {
 
     @Override
     public void generateFile() {
-        fileContent = sobOffbatcdftor.getContent();
-
+        final StringBuilder content = new StringBuilder();
+        
+        content.append("# SOB");
+        content.append(System.getProperty("line.separator"));
+        content.append(sobOffbatcdftor.getContent());
+        
+        fileContent = content.toString();
+        
         super.appendFile();
     }
 
