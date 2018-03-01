@@ -1,9 +1,7 @@
 /*
- * 
+ *
  */
 package com.transfile.logtype;
-
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -14,22 +12,22 @@ import com.transfile.transcode.VariableType;
 public class SUBAborep extends ALogType {
     private static final String SUBUBZ = "SUBUBZ";
     private static final String ABOREPNET = "ABOREPNET";
-
+    
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.SUB_response.getValue());
-
+        configs = configurationService.findByLogType(LogType.SUB_response.getValue());
+        
         for (final Configuration config : configs) {
             client = config.getClient();
-
+            
             defaultValue.append(config.getNameZip());
             defaultValue.append(config.getOccurence());
             defaultValue.append(transcodeService.getSUBResponseNormalise(config.getExtention(), VariableType.EXT));
-
+            
             forcedValue.append(config.getForcedFileName());
-
+            
             forcedExtension = null;
-
+            
             fileContent.append(SUBAborep.SUBUBZ);
             fileContent.append(ALogType.DOT);
             fileContent.append(SUBAborep.ABOREPNET);
@@ -44,10 +42,10 @@ public class SUBAborep extends ALogType {
             fileContent.append(checkForcedValue(config, forcedValue, forcedExtension, defaultValue));
             fileContent.append(ALogType.COLON);
             fileContent.append(transcodeService.getSUBResponseNormalise(client.getProtocol(), VariableType.PROTOCOL));
-            fileContent.append(System.getProperty("line.separator"));
+            fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
-
+        
         return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
     }
-
+    
 }

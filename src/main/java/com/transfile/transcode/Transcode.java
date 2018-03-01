@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.transfile.transcode;
 
@@ -15,60 +15,60 @@ import com.transfile.logtype.LogType;
 @Entity
 @Table(name = "TRANSCODE")
 public class Transcode {
-
+    
     @Id
     @Column(name = "TRANSCODE_ID", precision = 11, scale = 0)
     private Integer transcodeId;
-
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "LOG_TYPE", length = 255)
     private LogType logType;
-
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "VARIABLE_TYPE", length = 255)
     private VariableType variableType;
-
+    
     @Column(name = "DB_VALUE", length = 255)
     private String dbValue;
-
+    
     @Column(name = "CONF_VALUE", length = 255)
     private String confValue;
-
+    
     /**
      * @return the confValue
      */
     public String getConfValue() {
         return confValue;
     }
-
+    
     /**
      * @return the dbValue
      */
     public String getDbValue() {
         return dbValue;
     }
-
+    
     /**
      * @return the logType
      */
     public LogType getLogType() {
         return logType;
     }
-
+    
     /**
      * @return the transcodeId
      */
     public Integer getTranscodeId() {
         return transcodeId;
     }
-
+    
     /**
      * @return the variableType
      */
     public VariableType getVariableType() {
         return variableType;
     }
-
+    
     /**
      * @param confValue
      *            the confValue to set
@@ -76,7 +76,7 @@ public class Transcode {
     public void setConfValue(final String confValue) {
         this.confValue = confValue;
     }
-
+    
     /**
      * @param dbValue
      *            the dbValue to set
@@ -84,7 +84,7 @@ public class Transcode {
     public void setDbValue(final String dbValue) {
         this.dbValue = dbValue;
     }
-
+    
     /**
      * @param logType
      *            the logType to set
@@ -92,7 +92,7 @@ public class Transcode {
     public void setLogType(final LogType logType) {
         this.logType = logType;
     }
-
+    
     /**
      * @param transcodeId
      *            the transcodeId to set
@@ -100,7 +100,7 @@ public class Transcode {
     public void setTranscodeId(final Integer transcodeId) {
         this.transcodeId = transcodeId;
     }
-
+    
     /**
      * @param variableType
      *            the variableType to set

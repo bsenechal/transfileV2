@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.transfile;
 
@@ -28,7 +28,7 @@ import com.transfile.filetype.Sendfile;
 /**
  * Main class
  *
- */ 
+ */
 @SpringBootApplication(scanBasePackages = "com.transfile", exclude = { EmbeddedServletContainerAutoConfiguration.class,
         WebMvcAutoConfiguration.class })
 @Configuration
@@ -38,15 +38,15 @@ import com.transfile.filetype.Sendfile;
 @EnableTransactionManagement
 public class Application {
     private static final Logger LOGGER = Logger.getLogger(Application.class);
-
+    
     public static void main(final String[] args) {
         Application.LOGGER.info("Starting Transfile application");
-
+        
         SpringApplication.run(Application.class, args);
-
+        
         Application.LOGGER.info("Transfile application ended without error");
     }
-
+    
     @Autowired
     private Sendfile sendfile;
     @Autowired
@@ -57,34 +57,34 @@ public class Application {
     private Offbatcdftor offbatcdftor;
     @Autowired
     private Requete requete;
-
+    
     @Autowired
     private Flag flag;
-
+    
     private void launchFileGeneration(final String fileName) {
         flag.generateFile();
-
+        
         switch (fileName) {
         case "aborep":
             aborep.generateFile();
             break;
-
+        
         case "aboreq":
             aboreq.generateFile();
             break;
-
+        
         case "offbatcdftor":
             offbatcdftor.generateFile();
             break;
-
+        
         case "requete":
             requete.generateFile();
             break;
-
+        
         case "sendfile":
             sendfile.generateFile();
             break;
-
+        
         default:
             aborep.generateFile();
             aboreq.generateFile();
@@ -93,18 +93,18 @@ public class Application {
             sendfile.generateFile();
         }
     }
-
+    
     @Bean
     public CommandLineRunner run(final ApplicationContext appContext) {
         return args -> {
             String fileName = "";
-
+            
             if (args.length > 0) {
                 fileName = args[0];
             }
-
+            
             launchFileGeneration(fileName);
-
+            
         };
     }
 }

@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.transfile.configuration;
 
@@ -18,10 +18,10 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class ConfigurationService implements IConfigurationService {
-
+    
     @Autowired
     private IConfigurationRepository configurationRepository;
-
+    
     @Override
     public List<Configuration> findByLogType(final String logType) {
         return configurationRepository.findByLogTypeOrderByClient(logType);

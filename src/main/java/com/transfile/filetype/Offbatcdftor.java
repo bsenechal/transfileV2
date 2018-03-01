@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.transfile.filetype;
 
@@ -13,32 +13,32 @@ import com.transfile.logtype.SOBOffbatcdftor;
 
 @Component
 public class Offbatcdftor extends AFileType {
-
+    
     @Autowired
     private SOBOffbatcdftor sobOffbatcdftor;
-
+    
     @Value("${output.offbatcdftor.path}")
     private String offbatcdftorPath;
-
+    
     @Value("${output.offbatcdftor.name}")
-    private String fileName;
-
+    private String offbatcdftorFileName;
+    
     @Override
     public void generateFile() {
         final StringBuilder content = new StringBuilder();
-        
+
         content.append("# SOB");
-        content.append(System.getProperty("line.separator"));
+        content.append(System.getProperty(AFileType.LINE_SEPARATOR));
         content.append(sobOffbatcdftor.getContent());
-        
+
         fileContent = content.toString();
-        
+
         super.appendFile();
     }
-
+    
     @PostConstruct
     private void initialize() {
-        super.fileName = fileName;
+        super.fileName = offbatcdftorFileName;
         super.filePath = offbatcdftorPath;
     }
 }

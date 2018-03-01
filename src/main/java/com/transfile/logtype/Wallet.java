@@ -1,9 +1,7 @@
 /*
- * 
+ *
  */
 package com.transfile.logtype;
-
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -12,15 +10,15 @@ import com.transfile.transcode.VariableType;
 
 @Component
 public class Wallet extends ALogType {
-
+    
     private static final String UBZ_WALLET = "ubz-wallet.expiring";
-
+    
     private static final String FTP_B = "ftp_b";
-
+    
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.wallet.getValue());
-
+        configs = configurationService.findByLogType(LogType.wallet.getValue());
+        
         for (final Configuration config : configs) {
             client = config.getClient();
             defaultValue.append(config.getNameZip());
@@ -30,13 +28,13 @@ public class Wallet extends ALogType {
             defaultValue.append(ALogType.COLON);
             defaultValue.append(config.getNameFile());
             defaultValue.append(config.getOccurence());
-
+            
             forcedValue.append(config.getForcedZipName());
             forcedValue.append(ALogType.COLON);
             forcedValue.append(config.getForcedFileName());
-
+            
             forcedExtension.append(config.getForcedFileName());
-
+            
             fileContent.append(Wallet.UBZ_WALLET);
             fileContent.append(ALogType.DOT);
             fileContent.append(client.getMerchantId());
@@ -61,9 +59,9 @@ public class Wallet extends ALogType {
             fileContent.append(ALogType.COLON);
             fileContent.append(transcodeService.getWalletNormalise(String.valueOf(config.getMultiple()), VariableType.MULTIPLE));
             fileContent.append(ALogType.COLON);
-            fileContent.append(System.getProperty("line.separator"));
+            fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
-
+        
         return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
     }
 }

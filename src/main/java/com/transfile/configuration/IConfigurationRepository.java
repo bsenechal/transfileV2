@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.transfile.configuration;
 
@@ -13,10 +13,10 @@ import org.springframework.data.repository.CrudRepository;
  *
  */
 public interface IConfigurationRepository extends CrudRepository<Configuration, Long> {
-
+    
     /**
      * Find all Configuration by log type
-     * 
+     *
      * @param logType
      * @return List<Configuration>
      */

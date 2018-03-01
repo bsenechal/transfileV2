@@ -1,9 +1,7 @@
 /*
- * 
+ *
  */
 package com.transfile.logtype;
-
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -12,18 +10,18 @@ import com.transfile.transcode.VariableType;
 
 @Component
 public class Chargeback extends ALogType {
-
+    
     private static final String UBZ_CHARGEBACK = "ubz-chargeback.jri-report";
-
+    
     private static final String FTP_B = "ftp_b";
-
+    
     @Override
     public String getContent() {
-        final List<Configuration> configs = configurationService.findByLogType(LogType.chargeback.getValue());
-
+        configs = configurationService.findByLogType(LogType.chargeback.getValue());
+        
         for (final Configuration config : configs) {
             client = config.getClient();
-
+            
             defaultValue.append(config.getNameZip());
             defaultValue.append(config.getOccurence());
             defaultValue.append(ALogType.DOT);
@@ -31,13 +29,13 @@ public class Chargeback extends ALogType {
             defaultValue.append(ALogType.COLON);
             defaultValue.append(config.getNameFile());
             defaultValue.append(config.getOccurence());
-
+            
             forcedValue.append(config.getForcedZipName());
             forcedValue.append(ALogType.COLON);
             forcedValue.append(config.getForcedFileName());
-
+            
             forcedExtension.append(config.getForcedFileName());
-
+            
             fileContent.append(Chargeback.UBZ_CHARGEBACK);
             fileContent.append(ALogType.DOT);
             fileContent.append(transcodeService.getChargebackNormalise(client.getBankName(), VariableType.BANK_NAME));
@@ -64,10 +62,10 @@ public class Chargeback extends ALogType {
             fileContent.append(ALogType.COLON);
             fileContent.append(transcodeService.getChargebackNormalise(String.valueOf(config.getMultiple()), VariableType.MULTIPLE));
             fileContent.append(ALogType.COLON);
-            fileContent.append(System.getProperty("line.separator"));
+            fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
-
+        
         return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
     }
-
+    
 }

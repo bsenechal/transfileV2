@@ -1,5 +1,0 @@
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('1', '000000000000001', 'Myawsumshop', 'production', 'ftp', 'CL', 'ubzawsum');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('2', '000000000000002', 'GunsNRoses', 'acceptance', 'sftp', 'BNP', 'ubzrock');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('3', '000000000000003', 'Metallica', 'production', 'ftp', 'SIPS', 'ubzrock');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('4', '000000000000004', 'FooFighters', 'production', 'ftp', 'LAPOSTE', 'ubzrock');
-INSERT INTO `test`.`client` (`CLIENT_ID`, `MERCHANT_ID`, `SIPS_ALIAS`, `ENVIRONMENT`, `PROTOCOL`, `BANK_NAME`, `MERCHANT_FTP`) VALUES ('5', '000000000000005', 'Deadmau5', 'production', 'sftp', 'SG', 'ubzelectro');

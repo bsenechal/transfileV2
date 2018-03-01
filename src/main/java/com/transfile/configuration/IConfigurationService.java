@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package com.transfile.configuration;
 
@@ -11,10 +11,10 @@ import java.util.List;
  */
 @FunctionalInterface
 public interface IConfigurationService {
-
+    
     /**
      * Find all Configuration by log type
-     * 
+     *
      * @param logType
      * @return List<Configuration>
      */

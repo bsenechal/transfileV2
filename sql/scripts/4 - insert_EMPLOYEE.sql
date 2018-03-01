@@ -1,1 +1,0 @@
-INSERT INTO `test`.`employee` (`EMPLOYEE_ID`, `EMPLOYEE_NAME`, `TEAM_ID`) VALUES ('1', 'test TEST', '1');
