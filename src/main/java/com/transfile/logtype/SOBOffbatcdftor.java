@@ -3,9 +3,12 @@
  */
 package com.transfile.logtype;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.transfile.configuration.Configuration;
+import com.transfile.stats.StatsException;
 import com.transfile.transcode.VariableType;
 
 @Component
@@ -15,8 +18,8 @@ public class SOBOffbatcdftor extends ALogType {
     private static final String FTP_B = "ftp_b";
 
     @Override
-    public String getContent() {
-        configs = configurationService.findByLogType(LogType.SOB_response.getValue());
+    protected void generateContent() throws StatsException{
+        super.logType = LogType.SOB_response;
 
         for (final Configuration config : configs) {
             client = config.getClient();
@@ -50,6 +53,10 @@ public class SOBOffbatcdftor extends ALogType {
             fileContent.append(transcodeService.getSOBResponseNormalise(client.getProtocol(), VariableType.PROTOCOL));
             fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
-        return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
+    }
+
+    @PostConstruct
+    private void init () {
+        super.logType = LogType.SOB_response;
     }
 }

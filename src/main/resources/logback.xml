@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property resource="application.properties" />
+
+	<appender name="dailyRollingFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${log.path}/transfile.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${log.path}/transfile.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.hibernate" level="warn" />
+	<logger name="org.springframework.batch" level="warn" />
+	<logger name="org.springframework.data.repository" level="warn" />
+	<logger name="org.springframework.jdbc" level="warn" />
+	<logger name="com.transfile" level="info" />
+
+	<root level="error">
+		<appender-ref ref="dailyRollingFileAppender" />
+	</root>
+
+</configuration>

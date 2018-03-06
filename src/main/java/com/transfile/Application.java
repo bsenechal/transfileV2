@@ -40,11 +40,9 @@ public class Application {
     private static final Logger LOGGER = Logger.getLogger(Application.class);
 
     public static void main(final String[] args) {
-        Application.LOGGER.info("Starting Transfile application");
 
         SpringApplication.run(Application.class, args);
 
-        Application.LOGGER.info("Transfile application ended without error");
     }
 
     @Autowired
@@ -97,6 +95,8 @@ public class Application {
     @Bean
     public CommandLineRunner run(final ApplicationContext appContext) {
         return args -> {
+            Application.LOGGER.info("Starting Transfile application");
+
             String fileName = "";
 
             if (args.length > 0) {
@@ -105,6 +105,7 @@ public class Application {
 
             launchFileGeneration(fileName);
 
+            Application.LOGGER.info("Transfile application ended without error");
         };
     }
 }

@@ -3,9 +3,12 @@
  */
 package com.transfile.logtype;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.transfile.configuration.Configuration;
+import com.transfile.stats.StatsException;
 
 @Component
 public class SUBAboreq extends ALogType {
@@ -13,8 +16,8 @@ public class SUBAboreq extends ALogType {
     private static final String PAYMENT_7Z = "payment:7za";
 
     @Override
-    public String getContent() {
-        configs = configurationService.findByLogType(LogType.SUB_request.getValue());
+    protected void generateContent() throws StatsException{
+        super.logType = LogType.SUB_request;
 
         for (final Configuration config : configs) {
             client = config.getClient();
@@ -32,8 +35,10 @@ public class SUBAboreq extends ALogType {
             fileContent.append(SUBAboreq.PAYMENT_7Z);
             fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
-
-        return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
     }
 
+    @PostConstruct
+    private void init () {
+        super.logType = LogType.SUB_request;
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.transfile.logtype.SOBOffbatcdftor;
+import com.transfile.stats.StatsException;
 
 @Component
 public class Offbatcdftor extends AFileType {
@@ -24,16 +25,10 @@ public class Offbatcdftor extends AFileType {
     private String offbatcdftorFileName;
 
     @Override
-    public void generateFile() {
-        final StringBuilder content = new StringBuilder();
-        
+    protected void generateContent() throws StatsException {
         content.append("# SOB");
         content.append(System.getProperty(AFileType.LINE_SEPARATOR));
         content.append(sobOffbatcdftor.getContent());
-        
-        fileContent = content.toString();
-        
-        super.appendFile();
     }
 
     @PostConstruct

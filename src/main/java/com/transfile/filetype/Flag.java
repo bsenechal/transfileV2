@@ -18,12 +18,7 @@ public class Flag extends AFileType {
     private String flagFileName;
 
     @Override
-    public void generateFile() {
-
-        fileContent = "";
-
-        super.appendFile();
-
+    protected void generateContent() {
     }
 
     @PostConstruct

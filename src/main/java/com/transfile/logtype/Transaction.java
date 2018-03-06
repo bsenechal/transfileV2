@@ -3,10 +3,14 @@
  */
 package com.transfile.logtype;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.transfile.configuration.Configuration;
+import com.transfile.stats.StatsException;
 import com.transfile.transcode.VariableType;
+
 
 @Component
 public class Transaction extends ALogType {
@@ -15,8 +19,7 @@ public class Transaction extends ALogType {
     private static final String FTP_B = "ftp_b";
 
     @Override
-    public String getContent() {
-        configs = configurationService.findByLogType(LogType.transaction.getValue());
+    protected void generateContent() throws StatsException {
 
         for (final Configuration config : configs) {
             client = config.getClient();
@@ -59,7 +62,10 @@ public class Transaction extends ALogType {
             fileContent.append(ALogType.COLON);
             fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
+    }
 
-        return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
+    @PostConstruct
+    private void init () {
+        super.logType = LogType.transaction;
     }
 }

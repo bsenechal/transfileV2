@@ -3,9 +3,12 @@
  */
 package com.transfile.logtype;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.transfile.configuration.Configuration;
+import com.transfile.stats.StatsException;
 import com.transfile.transcode.VariableType;
 
 @Component
@@ -17,8 +20,7 @@ public class SOBRequete extends ALogType {
     private static final String OFFICE = "office";
 
     @Override
-    public String getContent() {
-        configs = configurationService.findByLogType(LogType.SOB_request.getValue());
+    protected void generateContent() throws StatsException{
 
         for (final Configuration config : configs) {
             client = config.getClient();
@@ -44,7 +46,10 @@ public class SOBRequete extends ALogType {
             fileContent.append(SOBRequete.OFFICE);
             fileContent.append(System.getProperty(ALogType.LINE_SEPARATOR));
         }
+    }
 
-        return fileContent.toString().replace(ALogType.NULL, ALogType.EMPTY);
+    @PostConstruct
+    private void init () {
+        super.logType = LogType.SOB_request;
     }
 }
