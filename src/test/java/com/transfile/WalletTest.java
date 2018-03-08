@@ -19,6 +19,8 @@ import com.transfile.configuration.Configuration;
 import com.transfile.configuration.ConfigurationService;
 import com.transfile.logtype.LogType;
 import com.transfile.logtype.Wallet;
+import com.transfile.stats.IStatsService;
+import com.transfile.stats.StatsException;
 import com.transfile.transcode.TranscodeService;
 import com.transfile.transcode.VariableType;
 
@@ -37,6 +39,9 @@ public class WalletTest {
     
     @MockBean
     private TranscodeService transcodeService;
+    
+    @MockBean
+    private IStatsService statsService;
     
     private Configuration configuration;
     
@@ -64,8 +69,11 @@ public class WalletTest {
         Mockito.when(transcodeService.getWalletNormalise(null, VariableType.DELETE)).thenReturn(null);
         Mockito.when(transcodeService.getWalletNormalise(null, VariableType.MULTIPLE)).thenReturn(null);
         
-        Assert.assertEquals(WalletTest.EXPECTED_RESULT, wallet.getContent());
-        
+        try {
+            Assert.assertEquals(WalletTest.EXPECTED_RESULT, wallet.getContent());
+        } catch (StatsException e) {
+           Assert.fail(e.getMessage());
+        }
     }
     
 }

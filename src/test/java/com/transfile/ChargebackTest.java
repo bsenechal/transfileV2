@@ -19,6 +19,8 @@ import com.transfile.configuration.Configuration;
 import com.transfile.configuration.ConfigurationService;
 import com.transfile.logtype.Chargeback;
 import com.transfile.logtype.LogType;
+import com.transfile.stats.IStatsService;
+import com.transfile.stats.StatsException;
 import com.transfile.transcode.TranscodeService;
 import com.transfile.transcode.VariableType;
 
@@ -37,6 +39,9 @@ public class ChargebackTest {
     
     @MockBean
     private TranscodeService transcodeService;
+    
+    @MockBean
+    private IStatsService statsService;
     
     private Configuration configuration;
     
@@ -64,9 +69,12 @@ public class ChargebackTest {
         Mockito.when(transcodeService.getChargebackNormalise("BNP", VariableType.BANK_NAME)).thenReturn("BNP-1D");
         Mockito.when(transcodeService.getChargebackNormalise(null, VariableType.DELETE)).thenReturn(null);
         Mockito.when(transcodeService.getChargebackNormalise(null, VariableType.MULTIPLE)).thenReturn(null);
-        
-        Assert.assertEquals(ChargebackTest.EXPECTED_RESULT, chargeback.getContent());
-        
+
+        try {
+            Assert.assertEquals(ChargebackTest.EXPECTED_RESULT, chargeback.getContent());
+        } catch (StatsException e) {
+           Assert.fail(e.getMessage());
+        }
     }
     
 }
