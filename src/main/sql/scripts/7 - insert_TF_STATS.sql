@@ -1,0 +1,9 @@
+insert into tf_stats values (1, 'SOB_request', 1, 10, 15);
+insert into tf_stats values (2, 'SOB_response', 1, 10, 15);
+insert into tf_stats values (3, 'SUB_request', 1, 10, 15);
+insert into tf_stats values (4, 'SUB_response', 1, 10, 15);
+insert into tf_stats values (5, 'matching', 1, 10, 15);
+insert into tf_stats values (6, 'chargeback', 1, 10, 15);
+insert into tf_stats values (7, 'wallet', 1, 10, 15);
+insert into tf_stats values (8, 'operation', 1, 10, 15);
+insert into tf_stats values (9, 'transaction', 1, 10, 15);

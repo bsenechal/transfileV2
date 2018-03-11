@@ -132,6 +132,18 @@ CREATE TABLE TRANSCODE(
         PRIMARY KEY (TRANSCODE_ID )
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: TF_STATS
+#------------------------------------------------------------
+
+CREATE TABLE TF_STATS (
+        ID_STAT           INTEGER       ,
+        LOG_TYPE          VARCHAR (255) ,
+        PREVIOUS_VALUE    INTEGER       ,
+        DELTA_WARNING     INTEGER       ,
+        DELTA_ERROR       INTEGER       ,
+        PRIMARY KEY (ID_STAT)
+)ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Table: HISTORY_CLIENT
